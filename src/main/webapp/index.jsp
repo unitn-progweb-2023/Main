@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <%@include file="header.html"%>
 </head>
 <body>
 <h1><%= "Hello World!" %>
