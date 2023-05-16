@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap');
+
+:root{
+    --primary: #06b6d4;
+    --black: #030712;
+    --white: #ecfeff;
+    --primary-hover: #0891b2;
+    --hover: #cffafe;
+    --p-xs: 0.5rem;
+    --p-sm: 1rem;
+    --p-m: 2rem;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    color: var(--black);
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+    background-color: var(--white);
+}
+
+h1,h2,h3,h4,h5,h6,li,a{
+    all: unset;
+}
+
+.container{
+    isolation: isolate;
+    min-height: 100%;
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.max-width{
+    width: min(120rem, calc(100% - var(--p-m) * 2));
+}
+
+.navbar{
+    background-color: var(--white);
+    user-select: none;
+    padding: var(--p-sm);
+    margin: var(--p-m);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 29px 0px;
+}
+
+.navbar-menu{
+    display: flex;
+    flex-direction: row;
+    gap: var(--p-sm);
+}
+
+.navbar-title{
+    padding: var(--p-xs);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.navbar-menu-item{
+    padding: var(--p-xs) var(--p-sm);
+    border-radius: var(--p-xs);
+    font-size: 1.25rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navbar-menu-item:hover{
+    background-color: var(--hover);
+}
+
+.login{
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.login:hover{
+    background-color: var(--primary-hover);
+}
+
+.sign-in{
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.sign-in:before{
+    content: '';
+    height: 100%;
+}
+
+.sign-in:hover{
+    background-color: var(--white);
+    color: var(--primary-hover);
+    border: 2px solid var(--primary-hover);
+}
+
+.footer{
+    width: 100%;
+    margin-top: auto;
+    background-color: black;
+    height: 10rem;
+}
+
+.image-container{
+    z-index: -2;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    display: flex;
+}
+
+.image-container > img{
+    object-fit: cover;
+    width: 100%;
+}
+
+.hp-title-container{
+    display: flex;
+    height: 70vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.hp-title{
+    font-size: 8rem;
+    font-weight: 800;
+    letter-spacing: 0.75rem;
+}
+
+.in-text-image{
+    width: min(30rem,30%);
+    float: right;
+}
