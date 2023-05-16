@@ -2,6 +2,7 @@
 <html>
 <%@ include file="header.html"%>
 <body>
+    <h1>Chi Siamo</h1>
     <div>
         <div id="our_goals">
             <h3>L'associazione</h3>

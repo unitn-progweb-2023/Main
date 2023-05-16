@@ -19,7 +19,7 @@ public class HelloServlet extends HttpServlet {
 
         try (PrintWriter o = response.getWriter()){
             o.println("<html>");
-            request.getRequestDispatcher("./header.html").include(request, response);
+            request.getRequestDispatcher("./header.html").forward(request, response);
             o.println("<body>");
             o.println("<h1>" + message + "</h1>");
             o.println("</body></html>");
