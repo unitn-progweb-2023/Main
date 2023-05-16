@@ -17,17 +17,6 @@ public class HelloServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
 
-
-        // per convertire in stringa il contenuto del file header.html
-        // ispirato da: https://www.geeksforgeeks.org/java-program-to-extract-content-from-a-html-document/
-
-        // Hello
-        /* PrintWriter out = response.getWriter();
-        out.println("<html>");
-        out.println("<body>");
-        out.println("<h1>" + message + "</h1>");
-        out.println("</body></html>");
-*/
         try (PrintWriter o = response.getWriter()){
             o.println("<html>");
             request.getRequestDispatcher("./header.html").include(request, response);
