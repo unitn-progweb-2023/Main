@@ -6,5 +6,9 @@
         <%@ include file="navbar.html"%>
         <%@ include file="footer.html"%>
     </div>
+    <script>
+        const x = document.getElementById("contatti");
+        x.classList.add("selected")
+    </script>
 </body>
 </html>
