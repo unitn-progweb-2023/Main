@@ -23,5 +23,9 @@
 
         <%@ include file="footer.html"%>
     </div>
+    <script>
+        const x = document.getElementById("homepage");
+        x.classList.add("selected")
+    </script>
 </body>
 </html>
