@@ -2,7 +2,8 @@
 <html>
 <%@ include file="header.html"%>
 <body>
-    <div>
+    <div class="container">
+        <%@ include file="navbar.html"%>
         <h1>
             Fornitura di cure mediche
         </h1>
@@ -18,6 +19,7 @@
             Queste cure mediche salvavita non solo alleviano la sofferenza immediata, ma contribuiscono anche a
             migliorare la salute generale delle comunità a lungo termine.
         </p>
+        <%@ include file="footer.html"%>
     </div>
 </body>
 </html>

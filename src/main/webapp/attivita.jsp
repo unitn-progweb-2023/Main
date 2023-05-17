@@ -3,7 +3,8 @@
 <%@ include file="header.html"%>
 <body>
     <h1>Attività</h1>
-    <div>
+    <div class="container">
+        <%@ include file="navbar.html"%>
         <div>
             <a href="paginaattivita_1.jsp">
                 <img src="img/chisiamo_1.jpg" alt="attivita_1" width="150px">
@@ -39,6 +40,7 @@
                 e migliorare la sicurezza alimentare.
             </p>
         </div>
+        <%@ include file="footer.html"%>
     </div>
 </body>
 </html>

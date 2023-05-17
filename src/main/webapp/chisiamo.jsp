@@ -3,7 +3,8 @@
 <%@ include file="header.html"%>
 <body>
     <h1>Chi Siamo</h1>
-    <div>
+    <div class="container">
+        <%@ include file="navbar.html"%>
         <div id="our_goals">
             <h3>L'associazione</h3>
             <p>
@@ -41,7 +42,7 @@
                 <strong>Best Association of the World 2027!</strong></p>
             <img src="img/chisiamo_2.jpg" width="200px" alt="chi siamo">
         </div>
-
+        <%@ include file="footer.html"%>
     </div>
 </body>
 </html>

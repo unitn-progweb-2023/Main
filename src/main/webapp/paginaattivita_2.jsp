@@ -2,7 +2,8 @@
 <html>
 <%@ include file="header.html"%>
 <body>
-    <div>
+    <div class="container">
+        <%@ include file="navbar.html"%>
         <h1>
             Programmi di educazione sanitaria
         </h1>
@@ -22,6 +23,7 @@
             consapevolezza e comprensione della salute, Tum4World mira a migliorare le pratiche quotidiane di
             igiene e a promuovere uno stile di vita più sano nelle comunità coinvolte.
         </p>
+        <%@ include file="footer.html"%>
     </div>
 </body>
 </html>
