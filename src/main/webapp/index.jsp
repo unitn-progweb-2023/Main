@@ -3,11 +3,25 @@
 <html>
 <%@ include file="header.html"%>
 <body>
-    <h1><%= "Tum4World" %></h1>
-    <br/>
-    <a href="hello-servlet">clicca qui mona</a>
-    <a href="chisiamo.jsp">chisiamo</a>
-    <a href="attivita.jsp">attività</a>
-    <a href="contatti.jsp">contatti</a>
+    <div class="container">
+        <%@ include file="navbar.html"%>
+        <div class="image-container">
+            <img src="img/logo-trasparent.png">
+        </div>
+
+        <div class="hp-title-container">
+            <h1 class="hp-title">Tum4World</h1>
+        </div>
+
+        <div class="hp-text-container max-width-small">
+            <img class="in-text-image" src="img/homepage_1.jpg">
+            <h2 class="hp-p-title">Un p&ograve; su di noi</h2>
+            <p class="hp-text">La nostra associazone <i>no-profit</i> si prepone l'obbiettivo di aiutare tutte le persone che vivono nei paesi del terzo mondo. Mediante il supporto ricevuto dai suoi volontari e donatori Tum4World ha realizzato interventi sanitari aiutando comunità svantaggiate in giro nel mondo.</p>
+            <a class="hp-dowload" href="./Volantino%20A5.pdf" download="volantino">Scarica Volantino</a>
+        </div>
+
+
+        <%@ include file="footer.html"%>
+    </div>
 </body>
 </html>
