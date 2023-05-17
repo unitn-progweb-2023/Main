@@ -7,6 +7,8 @@
     --white-trasparent: #ecfeff60;
     --primary-hover: #0891b2;
     --hover: #cffafe;
+    --error: #e2121d;
+    --error-hover: #cb101a;
     --p-xs: 0.5rem;
     --p-sm: 1rem;
     --p-m: 2rem;
@@ -69,7 +71,7 @@ h1,h2,h3,h4,h5,h6,li,a{
     user-select: none;
     padding: var(--p-sm);
     margin: var(--p-m);
-    border-radius: 1rem;
+    border-radius: var(--p-sm);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -336,4 +338,13 @@ h1,h2,h3,h4,h5,h6,li,a{
     line-height: 1.75rem;
     text-align: justify;
     font-weight: 500;
+}
+
+.logout{
+    background-color: var(--error);
+    color: var(--white);
+}
+
+.logout:hover{
+    background-color: var(--error-hover);
 }

@@ -3,10 +3,17 @@
 <html>
 <head>
     <title>Tum4World</title>
-    <link rel="icon" href="img/favicon.ico">
+    <link rel="icon" href="/img/favicon.ico">
     <link rel="stylesheet" type="text/css" href="/styles/aderente.css">
+    <link rel="stylesheet" type="text/css" href="/styles/global.css.css">
 </head>
 <body>
+    <div class="container">
+        <%@ include file="navbar.html"%>
 
+
+
+        <%@ include file="/footer.html"%>
+    </div>
 </body>
 </html>
