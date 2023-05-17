@@ -4,6 +4,7 @@
 <body>
     <div class="container">
         <%@ include file="navbar.html"%>
+        <%@ include file="footer.html"%>
     </div>
 </body>
 </html>

@@ -1,16 +1,11 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: davide
-  Date: 15/05/23
-  Time: 11:40
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html>
 <html>
-<head>
-    <title>Tum4World</title>
-</head>
+<%@ include file="header.html"%>
 <body>
-
+    <div class="container">
+        <%@ include file="navbar.html"%>
+        <%@ include file="footer.html"%>
+    </div>
 </body>
 </html>

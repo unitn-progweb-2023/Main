@@ -16,6 +16,9 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
+}
+
+html{
     color: var(--black);
 }
 
@@ -47,7 +50,7 @@ h1,h2,h3,h4,h5,h6,li,a{
 }
 
 .max-width-small{
-    width: min(80rem, calc(100% - var(--p-m) * 2));
+    width: min(70rem, calc(100% - var(--p-m) * 2));
 }
 
 .navbar{
@@ -114,9 +117,13 @@ h1,h2,h3,h4,h5,h6,li,a{
 
 .footer{
     width: 100%;
+    padding: var(--p-m) 0px;
     margin-top: auto;
-    background-color: black;
-    height: 10rem;
+    background-color: var(--black);
+    color: var(--white);
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }
 
 .image-container{
@@ -162,6 +169,7 @@ h1,h2,h3,h4,h5,h6,li,a{
 .hp-text{
     font-size: 1.125rem;
     line-height: 1.75rem;
+    text-align: justify;
     margin-bottom: 5rem;
     margin-top: 2rem;
 }
@@ -178,4 +186,27 @@ h1,h2,h3,h4,h5,h6,li,a{
 
 .hp-dowload:hover{
     background-color: var(--primary-hover);
+}
+
+.footer-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--p-sm);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+
+}
+
+.footer-img{
+    width: 4rem;
+}
+
+.footer-img-title-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
