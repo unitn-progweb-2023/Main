@@ -2,7 +2,8 @@
 <html>
 <%@ include file="header.html"%>
 <body>
-    <div>
+    <div class="container">
+        <%@ include file="navbar.html"%>
         <h1>
             Progetti di sviluppo comunitario
         </h1>
@@ -24,5 +25,6 @@
             autonome e resilienti.
         </p>
     </div>
+    <%@ include file="footer.html"%>
 </body>
 </html>
