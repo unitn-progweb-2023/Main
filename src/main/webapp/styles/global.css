@@ -4,6 +4,7 @@
     --primary: #06b6d4;
     --black: #030712;
     --white: #ecfeff;
+    --white-trasparent: #ecfeff60;
     --primary-hover: #0891b2;
     --hover: #cffafe;
     --p-xs: 0.5rem;
@@ -143,6 +144,7 @@ h1,h2,h3,h4,h5,h6,li,a{
     overflow: hidden;
     position: absolute;
     display: flex;
+    top: 0;
 }
 
 .image-container > img{
@@ -293,10 +295,11 @@ h1,h2,h3,h4,h5,h6,li,a{
 .img-bg{
     position: absolute;
     z-index: -2;
+    top: 0;
     object-fit: cover;
     height: 100vh;
     width: 100vw;
-    filter: blur(4px);
+    filter: blur(3px);
 }
 
 .container-attivita{
@@ -315,7 +318,22 @@ h1,h2,h3,h4,h5,h6,li,a{
 .bcg-trasparent{
     position: absolute;
     z-index: -1;
+    top: 0;
     height: 100vh;
     width: 100vw;
-    background-color: var(--white);
+    background-color: var(--white-trasparent);
+}
+
+.ac-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--p-l);
+}
+
+.ac-text{
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    text-align: justify;
+    font-weight: 500;
 }
