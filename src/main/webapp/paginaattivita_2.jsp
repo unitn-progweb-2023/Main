@@ -2,12 +2,10 @@
 <html>
 <%@ include file="header.html"%>
 <body>
-    <div class="container">
+    <div class="container-attivita">
         <%@ include file="navbar.html"%>
-        <h1>
-            Programmi di educazione sanitaria
-        </h1>
-        <img src="img/chisiamo_2.jpg" width="150px" alt="immagine educazione">
+        <img  class="img-bg" src="img/chisiamo_2.jpg" width="150px" alt="immagine educazione">
+        <h1 class="cs-p-title">Programmi di educazione sanitaria</h1>
         <p>
             Tum4World riconosce l'importanza dell'educazione sanitaria come strumento per migliorare la salute
             e prevenire malattie. L'associazione realizza programmi di sensibilizzazione e formazione sulla salute

@@ -2,12 +2,11 @@
 <html>
 <%@ include file="header.html"%>
 <body>
-    <div class="container">
+    <div class="container-attivita">
         <%@ include file="navbar.html"%>
-        <h1>
-            Fornitura di cure mediche
-        </h1>
-        <img src="img/chisiamo_1.jpg" width="150px" alt="img fornitura">
+        <img class="img-bg" src="img/chisiamo_1.jpg" width="150px" alt="img fornitura">
+        <div class="bcg-trasparent"/>
+        <h1 class="cs-p-title">Fornitura di cure mediche</h1>
         <p>
             Tum4World organizza missioni mediche su base regolare per portare assistenza sanitaria direttamente
             alle comunità nei paesi del terzo mondo. Queste missioni coinvolgono un team di volontari qualificati,

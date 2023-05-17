@@ -9,6 +9,7 @@
     --p-xs: 0.5rem;
     --p-sm: 1rem;
     --p-m: 2rem;
+    --p-l: 4rem;
 }
 
 *{
@@ -43,10 +44,15 @@ h1,h2,h3,h4,h5,h6,li,a{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .max-width{
     width: min(120rem, calc(100% - var(--p-m) * 2));
+}
+
+.max-width-medium{
+    width: min(90rem, calc(100% - var(--p-m) * 2));
 }
 
 .max-width-small{
@@ -160,7 +166,7 @@ h1,h2,h3,h4,h5,h6,li,a{
 .in-text-image{
     width: min(45rem,30%);
     float: right;
-    margin: 0rem 0rem 4rem 4rem;
+    margin: 0rem 0rem var(--p-l) var(--p-l);
 }
 
 .hp-p-title{
@@ -204,7 +210,7 @@ h1,h2,h3,h4,h5,h6,li,a{
 }
 
 .footer-img{
-    width: 4rem;
+    width: var(--p-l);
 }
 
 .footer-img-title-container{
@@ -228,7 +234,7 @@ h1,h2,h3,h4,h5,h6,li,a{
     display: flex;
     flex-direction: column;
     gap: var(--p-m);
-    margin: 4rem 0;
+    margin: 0rem 0rem var(--p-l) 0;
 }
 
 .float-right{
@@ -252,5 +258,64 @@ h1,h2,h3,h4,h5,h6,li,a{
     line-height: 2rem;
     font-weight: 600;
     text-transform: uppercase;
-    margin-top: 4rem;
+    margin-top: var(--p-l);
+}
+
+.at-container{
+    display: flex;
+    flex-direction: row;
+    gap: var(--p-l);
+    margin-top: var(--p-l);
+    margin-bottom: var(--p-l);
+}
+
+.at-box{
+    display: flex;
+    flex-direction: column;
+    gap: var(--p-m);
+    width: 100%;
+}
+
+.at-p-title{
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.at-box > * > img{
+    cursor: pointer;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    object-fit: cover;
+}
+
+.img-bg{
+    position: absolute;
+    z-index: -2;
+    object-fit: cover;
+    height: 100vh;
+    width: 100vw;
+    filter: blur(4px);
+}
+
+.container-attivita{
+    z-index: 0;
+    isolation: isolate;
+    min-height: 100%;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--p-l);
+    background-color: var(--white);
+}
+
+.bcg-trasparent{
+    position: absolute;
+    z-index: -1;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--white);
 }

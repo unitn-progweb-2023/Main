@@ -4,8 +4,8 @@
 <body>
     <div class="container">
         <%@ include file="navbar.html"%>
+        <h1 class="page-title">Chi Siamo</h1>
         <div class="max-width-small cs-container">
-            <h1 class="page-title">Chi Siamo</h1>
             <h3 class="cs-p-title">L'associazione</h3>
             <div class="cs-box">
                 <p class="cs-text">

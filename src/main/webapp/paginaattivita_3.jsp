@@ -2,12 +2,10 @@
 <html>
 <%@ include file="header.html"%>
 <body>
-    <div class="container">
+    <div class="container-attivita">
         <%@ include file="navbar.html"%>
-        <h1>
-            Progetti di sviluppo comunitario
-        </h1>
-        <img src="img/chisiamo_3.jpg" width="150px" alt="immagine sviluppo">
+        <img class="img-bg" src="img/chisiamo_3.jpg" width="150px" alt="immagine sviluppo">
+        <h1 class="cs-p-title">Progetti di sviluppo comunitario</h1>
         <p>
             Tum4World collabora attivamente con le comunità locali per implementare progetti di sviluppo
             sostenibile che abbiano un impatto duraturo sulla salute e sul benessere. Ciò include
