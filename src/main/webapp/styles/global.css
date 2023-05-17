@@ -214,3 +214,43 @@ h1,h2,h3,h4,h5,h6,li,a{
     font-size: 1.5rem;
     font-weight: 600;
 }
+
+.page-title{
+    display: block;
+    width: 100%;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.cs-container{
+    display: flex;
+    flex-direction: column;
+    gap: var(--p-m);
+    margin: 4rem 0;
+}
+
+.float-right{
+    float: right;
+}
+
+.cs-box{
+    display: flex;
+    align-items: center;
+    gap: var(--p-m);
+}
+
+.cs-text{
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    text-align: justify;
+}
+
+.cs-p-title{
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 4rem;
+}
