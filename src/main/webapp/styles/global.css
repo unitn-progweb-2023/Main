@@ -25,6 +25,10 @@ html, body{
     background-color: var(--white);
 }
 
+body{
+    overflow-x: hidden;
+}
+
 h1,h2,h3,h4,h5,h6,li,a{
     all: unset;
 }
@@ -32,7 +36,7 @@ h1,h2,h3,h4,h5,h6,li,a{
 .container{
     isolation: isolate;
     min-height: 100%;
-    min-width: 100%;
+    min-width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,6 +44,10 @@ h1,h2,h3,h4,h5,h6,li,a{
 
 .max-width{
     width: min(120rem, calc(100% - var(--p-m) * 2));
+}
+
+.max-width-small{
+    width: min(80rem, calc(100% - var(--p-m) * 2));
 }
 
 .navbar{
@@ -114,7 +122,7 @@ h1,h2,h3,h4,h5,h6,li,a{
 .image-container{
     z-index: -2;
     height: 100vh;
-    width: 100%;
+    width: 70%;
     overflow: hidden;
     position: absolute;
     display: flex;
@@ -127,7 +135,7 @@ h1,h2,h3,h4,h5,h6,li,a{
 
 .hp-title-container{
     display: flex;
-    height: 70vh;
+    height: 80vh;
     align-items: center;
     justify-content: center;
 }
@@ -139,6 +147,35 @@ h1,h2,h3,h4,h5,h6,li,a{
 }
 
 .in-text-image{
-    width: min(30rem,30%);
+    width: min(45rem,30%);
     float: right;
+    margin: 0rem 0rem 4rem 4rem;
+}
+
+.hp-p-title{
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.hp-text{
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    margin-bottom: 5rem;
+    margin-top: 2rem;
+}
+
+.hp-dowload{
+    padding: var(--p-xs) var(--p-sm);
+    border-radius: var(--p-xs);
+    font-size: 1.25rem;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.hp-dowload:hover{
+    background-color: var(--primary-hover);
 }
