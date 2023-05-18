@@ -5,13 +5,18 @@
 <body>
     <div class="container">
         <%@ include file="navbar.html"%>
-        <form action="@TODO dove mandare i dati del login" method="POST">
-            <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username" required><br>
+        <h1 class="page-title">Login</h1>
+        <form class="max-width-x-small form" action="@TODO dove mandare i dati del login" method="POST">
+            <div class="form-ele-wrapper">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
 
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password" required><br>
-            <input type="submit" value="Login">
+            <div class="form-ele-wrapper">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <input class="form-button" type="submit" value="Login">
         </form>
         <%@ include file="footer.html"%>
     </div>

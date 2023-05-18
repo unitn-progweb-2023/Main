@@ -3,6 +3,7 @@
 :root{
     --primary: #06b6d4;
     --black: #030712;
+    --gray: #9ca3af;
     --white: #ecfeff;
     --white-trasparent: #ecfeff60;
     --primary-hover: #0891b2;
@@ -40,6 +41,11 @@ h1,h2,h3,h4,h5,h6,li,a{
     all: unset;
 }
 
+input{
+    border: unset;
+    background-color: unset;
+}
+
 .container{
     isolation: isolate;
     min-height: 100%;
@@ -60,6 +66,10 @@ h1,h2,h3,h4,h5,h6,li,a{
 
 .max-width-small{
     width: min(70rem, calc(100% - var(--p-m) * 2));
+}
+
+.max-width-x-small{
+    width: min(40rem, calc(100% - var(--p-m) * 2));
 }
 
 .selected{
@@ -347,4 +357,95 @@ h1,h2,h3,h4,h5,h6,li,a{
 
 .logout:hover{
     background-color: var(--error-hover);
+}
+
+.obbligatorio:after{
+    content: "*";
+    color: var(--error);
+}
+
+.form{
+    margin-top: var(--p-m);
+    margin-bottom: var(--p-m);
+    display: flex;
+    flex-direction: column;
+    gap: var(--p-m);
+}
+
+.form-row{
+    display: flex;
+    flex-direction: row;
+    gap: var(--p-m);
+}
+
+.form-row > *{
+    width: 100%;
+}
+
+.form label{
+    position: absolute;
+}
+
+.form-ele-wrapper{
+    position: relative;
+}
+
+.form input{
+    width: 100%;
+    border-radius: var(--p-xs);
+    border: 2px solid var(--gray);
+    padding: var(--p-xs) 0.75rem;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+
+.form input:focus{
+    border: 2px solid var(--black);
+}
+
+.form label{
+    padding: 0 var(--p-xs);
+    background-color: var(--white);
+    transform: translate(0.5rem,-50%);
+    border-radius: var(--p-xs);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+}
+
+.radio{
+    display: flex;
+    flex-direction: row;
+    gap: var(--p-m);
+    justify-content: space-between;
+    align-items: center;
+}
+
+.radio label{
+    position: initial;
+    transform: initial;
+    padding: 0;
+}
+
+.radio > div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--p-sm);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px var(--white) inset;
+}
+
+.form-button{
+    cursor: pointer;
 }
