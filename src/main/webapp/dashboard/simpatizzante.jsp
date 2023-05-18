@@ -3,9 +3,9 @@
 <html>
 <head>
     <title>Tum4World</title>
-    <link rel="icon" href="/img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/styles/simpatizzante.css">
-    <link rel="stylesheet" type="text/css" href="/styles/global.css">
+    <link rel="icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../styles/simpatizzante.css">
+    <link rel="stylesheet" type="text/css" href="../styles/global.css">
 </head>
 <body>
     <div class="container">
@@ -15,7 +15,7 @@
             <div class="span-2 grid-element"> b </div>
             <div class="grid-element"> c </div>
         </div>
-        <%@ include file="/footer.html"%>
+        <%@ include file="footer.html"%>
     </div>
 </body>
 </html>

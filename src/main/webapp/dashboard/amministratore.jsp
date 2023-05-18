@@ -3,9 +3,9 @@
 <html>
 <head>
     <title>Tum4World</title>
-    <link rel="icon" href="/img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/styles/amministratore.css">
-    <link rel="stylesheet" type="text/css" href="/styles/global.css.css">
+    <link rel="icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../styles/amministratore.css">
+    <link rel="stylesheet" type="text/css" href="../styles/global.css.css">
 </head>
 <body>
     <div class="container">
@@ -13,7 +13,7 @@
 
 
 
-        <%@ include file="/footer.html"%>
+        <%@ include file="footer.html"%>
     </div>
 </body>
 </html>
