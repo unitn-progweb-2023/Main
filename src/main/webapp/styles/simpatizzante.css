@@ -17,3 +17,7 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 29px 0px;
     border-radius: var(--p-sm);
 }
+
+.form-contaienr{
+    margin: var(--p-m);
+}
