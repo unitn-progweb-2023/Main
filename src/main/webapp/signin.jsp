@@ -31,7 +31,7 @@
 
                 <div class="form-ele-wrapper">
                     <label class="obbligatorio" for="telefono">Numero di telefono</label>
-                    <input type="tel" id="telefono" name="telefono" pattern="[0-9]{10}" required placeholder="3401234789">
+                    <input type="tel" id="telefono" name="telefono" pattern="^[0-9]{10}$" required placeholder="3401234789">
                 </div>
             </div>
 
@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="form-ele-wrapper">
-                    <label class="obbligatorio" for="password">Conferma Password</label>
+                    <label class="obbligatorio" for="confermapassword">Conferma Password</label>
                     <input type="password" id="confermapassword" name="confermapassword" required>
                 </div>
             </div>
