@@ -1,11 +1,33 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <%@ include file="header.html"%>
+<script>
+    function maggiorenne(){
+        let ora = new Date();
+        let input = new Date(document.getElementById("data_nascita").value);
+        let diff = new Date(ora - input);
+        let age = Math.abs(diff.getUTCFullYear() - 1970);
+        return age >= 18;
+        /*try {
+            return new Date(new Date() - new Date(document.getElementById("data_nascita").value)).getUTCFullYear()>1970;
+        } catch (e) {
+            return false;
+        }*/
+    }
+    function valida_password(){
+        let psw = document.getElementById("password").value;
+        return psw == document.getElementById("confermapassword").value && /(?=.*[0-9])(?=.*[dD])(?=.*[eE])(?=.*[gG])(?=.*[lL])(?=.*[$!?])(?=.*[A-Z]).{8,}/.test(psw);
+    }
+    function valida_form(){
+        // gestione errori singolarmente?
+        return (maggiorenne() && valida_password());
+    }
+</script>
 <body>
     <div class="container">
         <%@ include file="navbar.html"%>
         <h1 class="page-title">Registrazione</h1>
-        <form class="max-width-x-small form" action="@TODO dove mandare i dati della registrazione" method="POST">
+        <form class="max-width-x-small form" action="@TODO dove mandare i dati della registrazione" onsubmit="return valida_form()" method="POST">
             <div class="form-row">
                 <div class="form-ele-wrapper">
                     <label class="obbligatorio" for="nome">Nome</label>
