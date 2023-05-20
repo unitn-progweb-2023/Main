@@ -1,16 +1,18 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: davide
-  Date: 15/05/23
-  Time: 11:39
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title>Title</title>
-</head>
+<%@ include file="header.html"%>
 <body>
-
+<div class="container">
+    <%@ include file="navbar.html"%>
+    <h1 class="page-title">Registrazione Confermata</h1>
+    <div>
+        <p>
+            Operazione andata a buon fine!
+            <br>
+            Utente registrato con successo!
+        </p>
+    </div>
+    <%@ include file="footer.html"%>
+</div>
 </body>
 </html>
