@@ -4,7 +4,7 @@
             <p id="footer-frase"></p>
         </div>
         <div class="footer-img-title-container">
-            <img class="footer-img" src="img/logo-trasparent.png">
+            <img class="footer-img" src="../img/logo-trasparent.png">
             <h2>Tum4World</h2>
         </div>
 
@@ -14,7 +14,7 @@
 
 <script>
     const doFetch = () => {
-        fetch("frase")
+        fetch("../frase")
             .then(response => response.text())
             .then((response) => {
                 element.innerHTML = response
