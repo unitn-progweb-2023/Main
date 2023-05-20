@@ -8,7 +8,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import javax.swing.text.html.parser.Parser;
 
-@WebServlet(name = "getDati", value = "/dashboard/getdati")
+@WebServlet(name = "getDati", value = "/dashboard/getDati")
 public class GetDati extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
