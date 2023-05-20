@@ -6,8 +6,8 @@
         let ora = new Date();
         let input = new Date(document.getElementById("data_nascita").value);
         let diff = new Date(ora - input);
-        let age = Math.abs(diff.getUTCFullYear() - 1970);
-        return age >= 18;
+        let eta = Math.abs(diff.getUTCFullYear() - 1970);
+        return eta >= 18;
         /*try {
             return new Date(new Date() - new Date(document.getElementById("data_nascita").value)).getUTCFullYear()>1970;
         } catch (e) {
@@ -18,9 +18,13 @@
         let psw = document.getElementById("password").value;
         return psw == document.getElementById("confermapassword").value && /(?=.*[0-9])(?=.*[dD])(?=.*[eE])(?=.*[gG])(?=.*[lL])(?=.*[$!?])(?=.*[A-Z]).{8,}/.test(psw);
     }
+    function valida_mail(){
+        let email = document.getElementById("email").value;
+        return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email);
+    }
     function valida_form(){
         // gestione errori singolarmente?
-        return (maggiorenne() && valida_password());
+        return (maggiorenne() && valida_password() && valida_mail());
     }
 </script>
 <body>
@@ -31,12 +35,12 @@
             <div class="form-row">
                 <div class="form-ele-wrapper">
                     <label class="obbligatorio" for="nome">Nome</label>
-                    <input type="text" id="nome" name="nome" required>
+                    <input type="text" id="nome" name="nome" pattern="(?!.*'')(?!.*\s\s)(?!.*'(\s*\w*)')^[a-zA-Z]+[a-zA-Z'\s]*$" required>
                 </div>
 
                 <div class="form-ele-wrapper">
                     <label class="obbligatorio" for="cognome">Cognome</label>
-                    <input type="text" id="cognome" name="cognome" required>
+                    <input type="text" id="cognome" name="cognome" pattern="(?!.*'')(?!.*\s\s)(?!.*'(\s*\w*)')^[a-zA-Z]+[a-zA-Z'\s]*$" required>
                 </div>
             </div>
 
