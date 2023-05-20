@@ -17,6 +17,6 @@ public class GetDati extends HttpServlet {
         Account account = new Account("Mario","Rossi","example@domain.com","3774185988","09/7/2000","minatel");
         request.setAttribute("account", account);
 
-        getServletContext().getRequestDispatcher("dashboard/simpatizzante.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/dashboard/simpatizzante.jsp").forward(request, response);
     }
 }
