@@ -5,14 +5,9 @@
     <div class="container">
         <%@ include file="navbar.html"%>
         <h1 class="page-title">Contatti</h1>
-        <div>
-            <br>
-            <label>Via Primo Aprile 4, 0500, Trento, Italia</label>
-            <br>
-            <label> +39 333 1234567 </label>
-        </div>
-
         <form class="max-width-x-small form" action="invioconfermato.jsp" method="POST">
+            <p class="cs-text">Indirizzo: Via Primo Aprile 4, 0500, Trento, Italia<br/>Cellulare: +39 333 1234567 </p>
+
             <div class="form-row">
                 <div class="form-ele-wrapper">
                     <label class="obbligatorio" for="nome">Nome</label>
@@ -33,8 +28,7 @@
 
             <div class="form-row">
                 <div class="combo-box">
-                    <label class="obbligatorio">Motivo per il quale ci contatti:</label>
-                    <br>
+                    <label class="obbligatorio">Motivo per il quale ci contatti</label>
                     <select name="motivazioni" id="motivazioni" required>
                         <option value="volontario">Diventare volontario</option>
                         <option value="collaborazione">Collaborare con noi</option>
@@ -44,13 +38,9 @@
                     </select>
                 </div>
                 <div class="multi-lines-text">
-                    <label>Ulteriori informazioni:</label>
-                    <br><br>
-                    <label>
-                        <textarea rows = "4" cols = "40" name = "ulteriori" placeholder="Scrivi qui ulteriori dettagli..."></textarea>
-                    </label>
+                    <label>Ulteriori informazioni</label>
+                    <textarea rows = "4" cols = "40" name = "ulteriori" placeholder="Scrivi qui ulteriori dettagli..."></textarea>
                 </div>
-
             </div>
 
             <div class="form-row">

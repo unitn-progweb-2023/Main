@@ -1,9 +1,7 @@
 <div class="footer">
     <div class="max-width-small footer-container">
         <div class="zona-citazioni">
-            <p>
-                Frase molto motivazionale
-            </p>
+            <p id="footer-frase"></p>
         </div>
         <div class="footer-img-title-container">
             <img class="footer-img" src="img/logo-trasparent.png">
@@ -15,5 +13,16 @@
 </div>
 
 <script>
+    const doFetch = () => {
+        fetch("frase")
+            .then(response => response.text())
+            .then((response) => {
+                element.innerHTML = response
+            })
+    }
 
+    const element = document.getElementById("footer-frase");
+    doFetch();
+
+    setInterval(doFetch,20000)
 </script>
