@@ -15,7 +15,7 @@ import java.util.Random;
 public class GetFrase extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String[] frasi = {"Uniamo le nostre forze per guarire il mondo, un gesto alla volta","Ogni donazione, grande o piccola, fa la differenza nella vita delle persone che serviamo",
-                "Insieme possiamo superare le sfide e costruire un futuro più sano e luminoso","Il nostro impegno e' guidato dalla speranza di creare un mondo in cui nessuno sia lasciato indietro nella lotta per la salute e il benessere",
+                "Insieme possiamo superare le sfide e costruire un futuro piu sano e luminoso","Il nostro impegno e' guidato dalla speranza di creare un mondo in cui nessuno sia lasciato indietro nella lotta per la salute e il benessere",
         "Insieme possiamo superare le sfide, guarire le ferite e costruire una comunita' globale basata sulla solidarieta' e sulla cura reciproca"};
 
         response.setContentType("text/plain");
