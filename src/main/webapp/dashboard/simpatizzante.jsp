@@ -4,8 +4,8 @@
 <head>
     <title>Tum4World</title>
     <link rel="icon" href="../img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../styles/simpatizzante.css">
     <link rel="stylesheet" type="text/css" href="../styles/global.css">
+    <link rel="stylesheet" type="text/css" href="../styles/simpatizzante.css">
 </head>
 <body>
     <div class="container">
@@ -13,19 +13,57 @@
         <div class="max-width-small grid">
             <div class="grid-element" >
                 <div class="form-contaienr">
-                    <form class="form" action="/dashboard/getdati" method="get">
+                    <form class="form" action="/dashboard/getDati" method="get">
                         <input class="form-button" type="submit" value="Visualizza dati">
                     </form>
-                    ${account.getNome()}
-                    ${account.getCognome()}
-                    ${account.getEmail()}
-                    ${account.getCellulare()}
-                    ${account.getDataDiNascita()}
-                    ${account.getUsername()}
+
+                    <div class="info-text">
+                        <p>Nome: ${account.getNome()}</p>
+                        <p>Cognome: ${account.getCognome()}</p>
+                        <p>Email: ${account.getEmail()}</p>
+                        <p>Cellulare: ${account.getCellulare()}</p>
+                        <p>Data di nascita: ${account.getDataDiNascita()}</p>
+                        <p>Username: ${account.getUsername()}</p>
+                    </div>
                 </div>
             </div>
-            <div class="span-2 grid-element"> b </div>
-            <div class="grid-element"> c </div>
+            <div class="span-2 grid-element">
+                <div class="form-contaienr">
+                    <form class="form" action="/dashboard/setAttivita" method="post">
+                        <h1>Iscriviti alle seguenti attività</h1>
+
+                        <div class="checkbox">
+                            <label for="at1">
+                                <img src="../img/chisiamo_1.jpg">
+                            </label>
+                            <input type="checkbox" id="at1" name="attivita" value="at1">
+                            <h1>Fornitura di cure mediche</h1>
+                        </div>
+                        <div class="checkbox">
+                            <label for="at2">
+                                <img src="../img/chisiamo_2.jpg">
+                            </label>
+                            <input type="checkbox" id="at2" name="attivita" value="at2">
+                            <h1>Programmi di educazione sanitaria</h1>
+                        </div>
+                        <div class="checkbox">
+                            <label for="at3">
+                                <img src="../img/chisiamo_3.jpg">
+                            </label>
+                            <input type="checkbox" id="at3" name="attivita" value="at3">
+                            <h1>Progetti di sviluppo comunitario</h1>
+                        </div>
+                        <input class="form-button" type="submit" value="Iscriviti">
+                    </form>
+                </div>
+            </div>
+            <div class="grid-element">
+                <div class="form-contaienr">
+                    <form class="form" action="/dashboard/deleteAccount" method="post">
+                        <input class="form-button red" type="submit" value="Disiscrivimi">
+                    </form>
+                </div>
+            </div>
         </div>
         <%@ include file="footer.html"%>
     </div>

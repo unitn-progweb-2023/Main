@@ -1,12 +1,28 @@
 <div class="footer">
     <div class="max-width-small footer-container">
+        <div class="zona-citazioni">
+            <p id="footer-frase"></p>
+        </div>
         <div class="footer-img-title-container">
             <img class="footer-img" src="../img/logo-trasparent.png">
             <h2>Tum4World</h2>
         </div>
 
-        <p>Via Primo Aprile, 05000, Trento, Italia</p>
-    
-    
+        <p>Via Primo Aprile 4, 05000, Trento, Italia</p>
     </div>
 </div>
+
+<script>
+    const doFetch = () => {
+        fetch("../frase")
+            .then(response => response.text())
+            .then((response) => {
+                element.innerHTML = response
+            })
+    }
+
+    const element = document.getElementById("footer-frase");
+    doFetch();
+
+    setInterval(doFetch,20000)
+</script>

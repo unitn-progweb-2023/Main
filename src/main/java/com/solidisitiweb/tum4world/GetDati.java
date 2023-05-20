@@ -8,7 +8,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import javax.swing.text.html.parser.Parser;
 
-@WebServlet(name = "getDati", value = "/dashboard/getdati")
+@WebServlet(name = "getDati", value = "/dashboard/getDati")
 public class GetDati extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
@@ -17,6 +17,6 @@ public class GetDati extends HttpServlet {
         Account account = new Account("Mario","Rossi","example@domain.com","3774185988","09/7/2000","minatel");
         request.setAttribute("account", account);
 
-        getServletContext().getRequestDispatcher("dashboard/simpatizzante.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/dashboard/simpatizzante.jsp").forward(request, response);
     }
 }
