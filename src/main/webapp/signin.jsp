@@ -97,7 +97,7 @@
         function valida_password(){
             let psw = document.getElementById("password").value;
             let confermapsw = document.getElementById("confermapassword").value;
-            return psw === confermapsw && /(?=.*[0-9])(?=.*[dD])(?=.*[eE])(?=.*[gG])(?=.*[lL])(?=.*[$!?])(?=.*[A-Z]).{8,}/.test(psw.value);
+            return psw === confermapsw && /(?=.*[0-9])(?=.*[dD])(?=.*[eE])(?=.*[gG])(?=.*[lL])(?=.*[$!?])(?=.*[A-Z]).{8,}/.test(psw);
         }
         function valida_form(){
             // gestione errori singolarmente?
