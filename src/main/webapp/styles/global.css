@@ -503,6 +503,7 @@ select:-webkit-autofill:focus {
     top: 50%;
     right: var(--p-sm);
     transform: translate(0,-50%);
+    cursor: pointer;
 }
 
 .mostra-password:checked + label{
@@ -515,4 +516,5 @@ select:-webkit-autofill:focus {
     top: 50%;
     right: var(--p-sm);
     transform: translate(0,-50%);
+    cursor: pointer;
 }
