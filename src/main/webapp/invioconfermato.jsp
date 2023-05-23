@@ -3,7 +3,7 @@
 <%@ include file="header.html"%>
 <body>
     <div class="container">
-        <%@ include file="navbar.html"%>
+        <%@ include file="navbar.jsp"%>
         <h1 class="page-title">Invio Confermato</h1>
         <div>
             <p>
@@ -12,7 +12,7 @@
                 Al più presto ti ricontatteremo!
             </p>
         </div>
-        <%@ include file="footer.html"%>
+        <%@ include file="footer.jsp"%>
     </div>
 </body>
 </html>

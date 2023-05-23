@@ -3,7 +3,7 @@
 <%@ include file="header.html"%>
 <body>
     <div class="container-attivita">
-        <%@ include file="navbar.html"%>
+        <%@ include file="navbar.jsp"%>
         <img class="img-bg" src="img/chisiamo_2.jpg" width="150px" alt="immagine educazione">
         <div class="bcg-trasparent"></div><div class="max-width-small ac-container">
             <h1 class="page-title">Programmi di educazione sanitaria</h1>
@@ -23,7 +23,7 @@
                 igiene e a promuovere uno stile di vita più sano nelle comunità coinvolte.
             </p>
         </div>
-        <%@ include file="footer.html"%>
+        <%@ include file="footer.jsp"%>
     </div>
 </body>
 </html>

@@ -12,11 +12,19 @@ public class SetAttivita extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         String[] attivita = request.getParameterValues("attivita");
-        System.out.println(Arrays.toString(attivita));
+
+        String page = request.getParameter("page");
 
 
         // aggiungi attività al database
 
-        response.sendRedirect("/index.jsp");
+        if(page.equals("aderente")){
+            getServletContext().getRequestDispatcher("/dashboard/aderente.jsp").forward(request, response);
+        } else if(page.equals("simpatizzante")){
+            getServletContext().getRequestDispatcher("/dashboard/simpatizzante.jsp").forward(request, response);
+        }
+        else{
+            response.sendRedirect("/home.jsp");
+        }
     }
 }

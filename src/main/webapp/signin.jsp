@@ -3,7 +3,7 @@
 <%@ include file="header.html"%>
 <body>
     <div class="container">
-        <%@ include file="navbar.html"%>
+        <%@ include file="navbar.jsp"%>
         <h1 class="page-title">Registrazione</h1>
         <form class="max-width-x-small form" action="@TODO dove mandare i dati della registrazione" onsubmit="return valida_form()" method="POST">
             <div class="form-row">
@@ -57,15 +57,15 @@
                 <div class="form-ele-wrapper">
                     <label class="obbligatorio" for="password">Password</label>
                     <input type="password" id="password" name="password">
-                    <input type="checkbox" onclick="mostra_password('password')" id="mostrapassword">
-                    <label for="mostrapassword">Mostra password</label>
+                    <input class="mostra-password" type="checkbox" onclick="mostra_password('password')" id="mostrapassword">
+                    <label for="mostrapassword"></label>
                 </div>
 
                 <div class="form-ele-wrapper">
                     <label class="obbligatorio" for="confermapassword">Conferma Password</label>
                     <input type="password" id="confermapassword" name="confermapassword">
-                    <input type="checkbox" onclick="mostra_password('confermapassword')" id="mostraconferma">
-                    <label for="mostraconferma">Mostra password di conferma</label>
+                    <input class="mostra-password" type="checkbox" onclick="mostra_password('confermapassword')" id="mostraconferma">
+                    <label for="mostraconferma"></label>
                 </div>
             </div>
 
@@ -74,7 +74,7 @@
                 <input class="form-button" type="reset" value="Cancella tutto">
             </div>
         </form>
-        <%@ include file="footer.html"%>
+        <%@ include file="footer.jsp"%>
     </div>
     <script>
         function valida_nome(){
