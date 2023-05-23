@@ -26,7 +26,7 @@ public class GetDati extends HttpServlet {
             getServletContext().getRequestDispatcher("/dashboard/simpatizzante.jsp").forward(request, response);
         }
         else{
-            response.sendRedirect("/index.jsp");
+            response.sendRedirect("/home.jsp");
         }
     }
 }
