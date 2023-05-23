@@ -17,6 +17,6 @@ public class SetAttivita extends HttpServlet {
 
         // aggiungi attività al database
 
-        response.sendRedirect("/index.jsp");
+        response.sendRedirect("/home.jsp");
     }
 }
