@@ -4,8 +4,9 @@
 <script>
     function maggiorenne(){
         let ora = new Date();
-        let input = new Date(document.getElementById("data_nascita").value);
-        let diff = new Date(ora - input);
+        let input = document.getElementById("data_nascita");
+        let data_nascita = new Date(input.value);
+        let diff = new Date(ora - data_nascita);
         let eta = Math.abs(diff.getUTCFullYear() - 1970);
         return eta >= 18;
         /*try {
@@ -16,15 +17,12 @@
     }
     function valida_password(){
         let psw = document.getElementById("password").value;
-        return psw == document.getElementById("confermapassword").value && /(?=.*[0-9])(?=.*[dD])(?=.*[eE])(?=.*[gG])(?=.*[lL])(?=.*[$!?])(?=.*[A-Z]).{8,}/.test(psw);
-    }
-    function valida_mail(){
-        let email = document.getElementById("email").value;
-        return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email);
+        let confermapsw = document.getElementById("confermapassword").value;
+        return psw === confermapsw && /(?=.*[0-9])(?=.*[dD])(?=.*[eE])(?=.*[gG])(?=.*[lL])(?=.*[$!?])(?=.*[A-Z]).{8,}/.test(psw.value);
     }
     function valida_form(){
         // gestione errori singolarmente?
-        return (maggiorenne() && valida_password() && valida_mail());
+        return (maggiorenne() && valida_password());
     }
 </script>
 <body>
@@ -35,12 +33,16 @@
             <div class="form-row">
                 <div class="form-ele-wrapper">
                     <label class="obbligatorio" for="nome">Nome</label>
-                    <input type="text" id="nome" name="nome" pattern="(?!.*'')(?!.*\s\s)(?!.*'(\s*\w*)')^[a-zA-Z]+[a-zA-Z'\s]*$" required>
+                    <input type="text" id="nome" name="nome"
+                           pattern="(?!.*'')(?!.*\s\s)(?!.*'(\s*\w*)')^[a-zA-Z]+[a-zA-Z'\s]*$"
+                           title="Solo lettere e '" required>
                 </div>
 
                 <div class="form-ele-wrapper">
                     <label class="obbligatorio" for="cognome">Cognome</label>
-                    <input type="text" id="cognome" name="cognome" pattern="(?!.*'')(?!.*\s\s)(?!.*'(\s*\w*)')^[a-zA-Z]+[a-zA-Z'\s]*$" required>
+                    <input type="text" id="cognome" name="cognome"
+                           pattern="(?!.*'')(?!.*\s\s)(?!.*'(\s*\w*)')^[a-zA-Z]+[a-zA-Z'\s]*$"
+                           title="Solo lettere e '" required>
                 </div>
             </div>
 
@@ -52,7 +54,7 @@
             <div class="form-row">
                 <div class="form-ele-wrapper">
                     <label class="obbligatorio" for="email">Indirizzo email</label>
-                    <input type="email" id="email" name="email" required placeholder="example@domain.com">
+                    <input type="email" id="email" name="email" pattern="^[-a-zA-Z0-9_.%+]+@(?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,}$" required placeholder="example@domain.com">
                 </div>
 
                 <div class="form-ele-wrapper">
