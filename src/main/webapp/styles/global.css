@@ -486,3 +486,35 @@ select:-webkit-autofill:focus {
     font-size: 1.125rem;
     line-height: 1.75rem;
 }
+
+.mostra-password{
+    display: none;
+    position: absolute;
+    width: initial !important;
+}
+
+.mostra-password + label{
+    background:url('../img/hide.svg') no-repeat;
+    background-size: cover;
+    height: 2rem;
+    width: 2rem;
+    display:inline-block;
+    padding: 0 0 0 0px;
+    top: 50%;
+    right: var(--p-sm);
+    transform: translate(0,-50%);
+    cursor: pointer;
+}
+
+.mostra-password:checked + label{
+    background:url('../img/show.svg') no-repeat;
+    background-size: cover;
+    height: 2rem;
+    width: 2rem;
+    display:inline-block;
+    padding: 0 0 0 0px;
+    top: 50%;
+    right: var(--p-sm);
+    transform: translate(0,-50%);
+    cursor: pointer;
+}

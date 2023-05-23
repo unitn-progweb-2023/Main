@@ -15,17 +15,15 @@
             <div class="form-ele-wrapper">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
-            </div>
-
-            <div>
-                <input type="checkbox" onclick="mostra_password()" id="mostrapassword">
-                <label for="mostrapassword">Mostra password</label>
+                <input class="mostra-password" type="checkbox" onclick="mostra_password()" id="mostrapassword">
+                <label for="mostrapassword"></label>
             </div>
 
             <input class="form-button" type="submit" value="Login">
         </form>
         <%@ include file="footer.html"%>
     </div>
+
     <script>
         function mostra_password(){
             let psw = document.getElementById("password");
