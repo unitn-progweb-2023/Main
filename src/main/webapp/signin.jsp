@@ -5,7 +5,7 @@
     <div class="container">
         <%@ include file="navbar.html"%>
         <h1 class="page-title">Registrazione</h1>
-        <form class="max-width-x-small form" action="@TODO dove mandare i dati della registrazione" onsubmit="return valida_form()" method="POST">
+        <form class="max-width-x-small form" action="@TODO dove mandare i dati della registrazione" onsubmit="valida_form()" method="POST">
             <div class="form-row">
                 <div class="form-ele-wrapper">
                     <label class="obbligatorio" for="nome">Nome</label>
@@ -61,15 +61,15 @@
                 <div class="form-ele-wrapper">
                     <label class="obbligatorio" for="password">Password</label>
                     <input type="password" id="password" name="password" required>
-                    <input type="checkbox" onclick="mostra_password('password')" id="mostrapassword">
-                    <label for="mostrapassword">Mostra password</label>
+                    <input class="mostra-password" type="checkbox" onclick="mostra_password('password')" id="mostrapassword">
+                    <label for="mostrapassword"></label>
                 </div>
 
                 <div class="form-ele-wrapper">
                     <label class="obbligatorio" for="confermapassword">Conferma Password</label>
                     <input type="password" id="confermapassword" name="confermapassword" required>
-                    <input type="checkbox" onclick="mostra_password('confermapassword')" id="mostraconferma">
-                    <label for="mostraconferma">Mostra password di conferma</label>
+                    <input class="mostra-password" type="checkbox" onclick="mostra_password('confermapassword')" id="mostraconferma">
+                    <label for="mostraconferma"></label>
                 </div>
             </div>
 
