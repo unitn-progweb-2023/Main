@@ -11,6 +11,6 @@ public class DeleteAccount extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         // delete account
 
-        response.sendRedirect("/index.jsp");
+        response.sendRedirect("/home.jsp");
     }
 }
