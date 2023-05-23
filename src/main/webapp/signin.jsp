@@ -1,30 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <%@ include file="header.html"%>
-<script>
-    function maggiorenne(){
-        let ora = new Date();
-        let input = document.getElementById("data_nascita");
-        let data_nascita = new Date(input.value);
-        let diff = new Date(ora - data_nascita);
-        let eta = Math.abs(diff.getUTCFullYear() - 1970);
-        return eta >= 18;
-        /*try {
-            return new Date(new Date() - new Date(document.getElementById("data_nascita").value)).getUTCFullYear()>1970;
-        } catch (e) {
-            return false;
-        }*/
-    }
-    function valida_password(){
-        let psw = document.getElementById("password").value;
-        let confermapsw = document.getElementById("confermapassword").value;
-        return psw === confermapsw && /(?=.*[0-9])(?=.*[dD])(?=.*[eE])(?=.*[gG])(?=.*[lL])(?=.*[$!?])(?=.*[A-Z]).{8,}/.test(psw.value);
-    }
-    function valida_form(){
-        // gestione errori singolarmente?
-        return (maggiorenne() && valida_password());
-    }
-</script>
 <body>
     <div class="container">
         <%@ include file="navbar.html"%>
@@ -85,11 +61,15 @@
                 <div class="form-ele-wrapper">
                     <label class="obbligatorio" for="password">Password</label>
                     <input type="password" id="password" name="password" required>
+                    <input type="checkbox" onclick="mostra_password('password')" id="mostrapassword">
+                    <label for="mostrapassword">Mostra password</label>
                 </div>
 
                 <div class="form-ele-wrapper">
                     <label class="obbligatorio" for="confermapassword">Conferma Password</label>
                     <input type="password" id="confermapassword" name="confermapassword" required>
+                    <input type="checkbox" onclick="mostra_password('confermapassword')" id="mostraconferma">
+                    <label for="mostraconferma">Mostra password di conferma</label>
                 </div>
             </div>
 
@@ -100,5 +80,38 @@
         </form>
         <%@ include file="footer.html"%>
     </div>
+    <script>
+        function maggiorenne(){
+            let ora = new Date();
+            let input = document.getElementById("data_nascita");
+            let data_nascita = new Date(input.value);
+            let diff = new Date(ora - data_nascita);
+            let eta = Math.abs(diff.getUTCFullYear() - 1970);
+            return eta >= 18;
+            /*try {
+                return new Date(new Date() - new Date(document.getElementById("data_nascita").value)).getUTCFullYear()>1970;
+            } catch (e) {
+                return false;
+            }*/
+        }
+        function valida_password(){
+            let psw = document.getElementById("password").value;
+            let confermapsw = document.getElementById("confermapassword").value;
+            return psw === confermapsw && /(?=.*[0-9])(?=.*[dD])(?=.*[eE])(?=.*[gG])(?=.*[lL])(?=.*[$!?])(?=.*[A-Z]).{8,}/.test(psw.value);
+        }
+        function valida_form(){
+            // gestione errori singolarmente?
+            return (maggiorenne() && valida_password());
+        }
+        function mostra_password(id){
+            let psw = document.getElementById(id);
+            if(psw.type === "password"){
+                psw.type = "text";
+            }
+            else if(psw.type === "text"){
+                psw.type = "password";
+            }
+        }
+    </script>
 </body>
 </html>
