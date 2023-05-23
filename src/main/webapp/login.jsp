@@ -4,7 +4,7 @@
 <%@ include file="header.html"%>
 <body>
     <div class="container">
-        <%@ include file="navbar.html"%>
+        <%@ include file="navbar.jsp"%>
         <h1 class="page-title">Login</h1>
         <form class="max-width-x-small form" action="@TODO dove mandare i dati del login" method="POST">
             <div class="form-ele-wrapper">

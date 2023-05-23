@@ -3,7 +3,7 @@
 <%@ include file="header.html"%>
 <body>
     <div class="container">
-        <%@ include file="navbar.html"%>
+        <%@ include file="navbar.jsp"%>
         <h1 class="page-title">Registrazione</h1>
         <form class="max-width-x-small form" action="@TODO dove mandare i dati della registrazione" onsubmit="valida_form()" method="POST">
             <div class="form-row">

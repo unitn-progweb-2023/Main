@@ -3,7 +3,7 @@
 <%@ include file="header.html"%>
 <body>
     <div class="container">
-        <%@ include file="navbar.html"%>
+        <%@ include file="navbar.jsp"%>
         <h1 class="page-title">Contatti</h1>
         <form class="max-width-x-small form" action="invioconfermato.jsp" method="POST">
             <p class="cs-text">Indirizzo: Via Primo Aprile 4, 05000, Trento, Italia<br/>Cellulare: +39 333 1234567 </p>

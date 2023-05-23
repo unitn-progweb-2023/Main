@@ -4,7 +4,7 @@
 <%@ include file="header.html"%>
 <body>
     <div class="container">
-        <%@ include file="navbar.html"%>
+        <%@ include file="navbar.jsp"%>
         <div class="image-container">
             <img src="img/logo-trasparent.png">
         </div>

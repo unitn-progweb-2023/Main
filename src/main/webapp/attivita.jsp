@@ -3,7 +3,7 @@
 <%@ include file="header.html"%>
 <body>
     <div class="container">
-        <%@ include file="navbar.html"%>
+        <%@ include file="navbar.jsp"%>
         <h1 class="page-title">Attività</h1>
         <div class="max-width-medium at-container">
             <div class="at-box">

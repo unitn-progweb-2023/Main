@@ -3,7 +3,7 @@
 <%@ include file="header.html"%>
 <body>
     <div class="container">
-        <%@ include file="navbar.html"%>
+        <%@ include file="navbar.jsp"%>
         <h1 class="page-title">Chi Siamo</h1>
         <div class="max-width-small cs-container">
             <h3 class="cs-p-title">L'associazione</h3>
