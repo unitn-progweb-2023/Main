@@ -15,6 +15,7 @@
                 <div class="form-contaienr">
                     <form class="form" action="/dashboard/getDati" method="get">
                         <input class="form-button" type="submit" value="Visualizza dati">
+                        <input type="hidden" name="page" value="simpatizzante">
                     </form>
 
                     <div class="info-text">
@@ -54,6 +55,7 @@
                             <h1>Progetti di sviluppo comunitario</h1>
                         </div>
                         <input class="form-button" type="submit" value="Iscriviti">
+                        <input type="hidden" name="page" value="simpatizzante">
                     </form>
                 </div>
             </div>
