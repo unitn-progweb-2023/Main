@@ -70,7 +70,7 @@
                 <div class="form-contaienr dona">
                     <h1>Effettua una donazione a Tum4World</h1>
                     <form class="form dona" action="/dashboard/makeDonazione" method="post">
-                        <label class="obbligatorio" for="dona" >Importo</label>
+                        <label class="obbligatorio" for="dona" >Importo in €</label>
                         <input id="dona" type="number" min="0" value="Donazione">
                         <input type="submit" value="Dona">
                     </form>
