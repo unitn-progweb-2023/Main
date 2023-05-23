@@ -15,6 +15,7 @@
                 <div class="form-contaienr">
                     <form class="form" action="/dashboard/getDati" method="get">
                         <input class="form-button" type="submit" value="Visualizza dati">
+                        <input type="hidden" name="page" value="aderente">
                     </form>
 
                     <div class="info-text">
@@ -54,6 +55,7 @@
                             <h1>Progetti di sviluppo comunitario</h1>
                         </div>
                         <input class="form-button" type="submit" value="Iscriviti">
+                        <input type="hidden" name="page" value="aderente">
                     </form>
                 </div>
             </div>
@@ -64,11 +66,12 @@
                     </form>
                 </div>
             </div>
-            <div class="grid-element">
-                <div class="form-contaienr">
+            <div class="grid-element column-span-2">
+                <div class="form-contaienr dona">
                     <h1>Effettua una donazione a Tum4World</h1>
-                    <form class="form" action="/dashboard/makeDonazione" method="post">
-                        <input type="number" min="0" value="Donazione">
+                    <form class="form dona" action="/dashboard/makeDonazione" method="post">
+                        <label class="obbligatorio" for="dona" >Importo</label>
+                        <input id="dona" type="number" min="0" value="Donazione">
                         <input type="submit" value="Dona">
                     </form>
                 </div>

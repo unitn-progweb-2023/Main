@@ -13,10 +13,20 @@ public class GetDati extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
 
+        String page = request.getParameter("page");
+
         //prendo dati da database
+
         Account account = new Account("Mario","Rossi","example@domain.com","3774185988","09/7/2000","minatel");
         request.setAttribute("account", account);
 
-        getServletContext().getRequestDispatcher("/dashboard/simpatizzante.jsp").forward(request, response);
+        if(page.equals("aderente")){
+            getServletContext().getRequestDispatcher("/dashboard/aderente.jsp").forward(request, response);
+        } else if(page.equals("simpatizzante")){
+            getServletContext().getRequestDispatcher("/dashboard/simpatizzante.jsp").forward(request, response);
+        }
+        else{
+            response.sendRedirect("/index.jsp");
+        }
     }
 }

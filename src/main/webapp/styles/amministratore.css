@@ -1,0 +1,72 @@
+.grid{
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 3fr auto;
+    gap: var(--p-m);
+    margin-bottom: var(--p-m);
+}
+
+.span-2{
+    grid-row: span 2;
+}
+
+.grid-element{
+    background-color: var(--white);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 29px 0px;
+    border-radius: var(--p-sm);
+}
+
+.form-contaienr{
+    margin: var(--p-m);
+}
+
+.red{
+    color: var(--error);
+    border: 2px solid var(--error) !important;
+}
+
+.red:hover{
+    color: var(--error-hover);
+    border: 2px solid var(--error-hover) !important;
+}
+
+.info-text{
+    display: flex;
+    flex-direction: column;
+    gap: var(--p-xs);
+}
+
+.info-text > p{
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+
+form h1{
+    display: block;
+    width: 100%;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+label img{
+    object-fit: cover;
+    width: 10rem;
+    height: 5.5rem;
+}
+
+.checkbox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--p-m);
+}
+
+.checkbox label{
+    position: initial;
+    transform: initial;
+}
+
+.checkbox input{
+    width: initial;
+}
