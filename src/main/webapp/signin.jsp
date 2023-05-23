@@ -78,7 +78,7 @@
                 <input class="form-button" type="reset" value="Cancella tutto">
             </div>
         </form>
-        <%@ include file="footer.html"%>
+        <%@ include file="footer.jsp"%>
     </div>
     <script>
         function maggiorenne(){

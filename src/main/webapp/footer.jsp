@@ -1,3 +1,5 @@
+<jsp:useBean id="fraseBean" scope="request" class="com.solidisitiweb.tum4world.model.FraseBean"/>
+
 <div class="footer">
     <div class="max-width-small footer-container">
         <div class="zona-citazioni">
@@ -13,16 +15,10 @@
 </div>
 
 <script>
-    const doFetch = () => {
-        fetch("frase")
-            .then(response => response.text())
-            .then((response) => {
-                element.innerHTML = response
-            })
+    function updateFooter() {
+        var el = document.getElementById("footer-frase");
+        el.innerHTML = '<%= fraseBean.toString() %>';
     }
-
-    const element = document.getElementById("footer-frase");
-    doFetch();
-
-    setInterval(doFetch,20000)
+    setInterval(updateFooter, 5000); // 5 secondi
 </script>
+

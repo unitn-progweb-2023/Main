@@ -42,7 +42,7 @@
                 <img src="img/chisiamo_2.jpg" height="300px" alt="chi siamo">
             </div>
         </div>
-        <%@ include file="footer.html"%>
+        <%@ include file="footer.jsp"%>
     </div>
     <script>
         const x = document.getElementById("chisiamo");

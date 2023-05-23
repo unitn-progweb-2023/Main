@@ -23,7 +23,7 @@
                 igiene e a promuovere uno stile di vita più sano nelle comunità coinvolte.
             </p>
         </div>
-        <%@ include file="footer.html"%>
+        <%@ include file="footer.jsp"%>
     </div>
 </body>
 </html>

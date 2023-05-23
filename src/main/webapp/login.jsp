@@ -21,7 +21,7 @@
 
             <input class="form-button" type="submit" value="Login">
         </form>
-        <%@ include file="footer.html"%>
+        <%@ include file="footer.jsp"%>
     </div>
 
     <script>

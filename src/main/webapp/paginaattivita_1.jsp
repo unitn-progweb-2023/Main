@@ -20,7 +20,7 @@
                 migliorare la salute generale delle comunità a lungo termine.
             </p>
         </div>
-        <%@ include file="footer.html"%>
+        <%@ include file="footer.jsp"%>
     </div>
 </body>
 </html>
