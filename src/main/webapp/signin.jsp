@@ -74,7 +74,7 @@
                 <input class="form-button" type="reset" value="Cancella tutto">
             </div>
         </form>
-        <%@ include file="footer.jsp"%>
+        <%@ include file="footer.html"%>
     </div>
     <script>
         function valida_nome(){

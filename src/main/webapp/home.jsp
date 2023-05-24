@@ -20,7 +20,7 @@
             <a class="hp-dowload" href="./Volantino%20A5.pdf" download="volantino">Scarica Volantino</a>
         </div>
 
-        <jsp:include page="footer.jsp"/>
+        <%@ include file="footer.html"%>
     </div>
     <script>
         const x = document.getElementById("homepage");

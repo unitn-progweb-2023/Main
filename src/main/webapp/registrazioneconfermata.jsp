@@ -12,7 +12,7 @@
             Utente registrato con successo!
         </p>
     </div>
-    <%@ include file="footer.jsp"%>
+    <%@ include file="footer.html"%>
 </div>
 </body>
 </html>

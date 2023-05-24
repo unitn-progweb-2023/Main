@@ -42,7 +42,7 @@
                 </p>
             </div>
         </div>
-        <%@ include file="footer.jsp"%>
+        <%@ include file="footer.html"%>
     </div>
     <script>
         const x = document.getElementById("attivita");
