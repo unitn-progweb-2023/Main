@@ -13,16 +13,18 @@
 </div>
 
 <script>
-    const doFetch = () => {
-        fetch("../frase")
-            .then(response => response.text())
-            .then((response) => {
-                element.innerHTML = response
-            })
+    function fraseRequest() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                var response = JSON.parse(this.response);
+                document.getElementById("footer-frase").innerHTML = response.testo;
+            }
+        };
+        xhttp.open("GET", "../frase", true);
+        xhttp.send();
     }
+    fraseRequest();
 
-    const element = document.getElementById("footer-frase");
-    doFetch();
-
-    setInterval(doFetch,20000)
+    setInterval(fraseRequest, 20000); // 20 secondi
 </script>
