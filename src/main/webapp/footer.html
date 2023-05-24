@@ -4,10 +4,27 @@
             <p id="footer-frase"></p>
         </div>
         <div class="footer-img-title-container">
-            <img class="footer-img" src="img/logo-trasparent.png">
+            <img class="footer-img" src="img/logo-trasparent.png" alt="logo">
             <h2>Tum4World</h2>
         </div>
 
         <p>Via Primo Aprile 4, 05000, Trento, Italia</p>
     </div>
 </div>
+
+<script>
+    function fraseRequest() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                var response = JSON.parse(this.response);
+                document.getElementById("footer-frase").innerHTML = response.testo;
+            }
+        };
+        xhttp.open("GET", "frase", true);
+        xhttp.send();
+    }
+    fraseRequest();
+
+    setInterval(fraseRequest, 20000); // 20 secondi
+</script>
