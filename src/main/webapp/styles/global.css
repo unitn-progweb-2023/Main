@@ -518,3 +518,26 @@ select:-webkit-autofill:focus {
     transform: translate(0,-50%);
     cursor: pointer;
 }
+
+#portal{
+    position: absolute;
+    z-index: 999;
+    right: var(--p-m);
+    top: var(--p-m);
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    gap: var(--p-sm);
+}
+
+#portal > p{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: var(--p-sm);
+    background-color: var(--error);
+    color: var(--white);
+    border-radius: var(--p-xs);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 29px 0px;
+    font-weight: 500;
+}

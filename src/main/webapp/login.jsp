@@ -26,6 +26,7 @@
 
     <script>
         function mostra_password(){
+
             let psw = document.getElementById("password");
             if(psw.type === "password"){
                 psw.type = "text";
