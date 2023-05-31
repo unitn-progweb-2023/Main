@@ -15,6 +15,7 @@ public class GetFrase extends HttpServlet {
 
         FraseMotivazionale frase = new FraseMotivazionale();
         response.setContentType("application/json");
+        response.setCharacterEncoding("utf-8");
         String fraseJSON = "{ \"testo\" : \""+ frase.getFrase() +"\" }";
         response.getWriter().write(fraseJSON);
     }

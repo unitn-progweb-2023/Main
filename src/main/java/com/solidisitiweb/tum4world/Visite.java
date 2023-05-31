@@ -17,6 +17,7 @@ public class Visite extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("application/json");
+        response.setCharacterEncoding("utf-8");
 
         try (PrintWriter o = response.getWriter()){
             request.getRequestDispatcher("./header.html").forward(request, response);
