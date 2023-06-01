@@ -1,0 +1,1 @@
+java -jar ./lib/derbyrun.jar server start
