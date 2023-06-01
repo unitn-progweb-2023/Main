@@ -1,8 +1,9 @@
 package com.solidisitiweb.tum4world.model;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class FraseMotivazionale {
+public class FraseMotivazionale implements Serializable {
 
     String[] frasi = {"Uniamo le nostre forze per guarire il mondo, un gesto alla volta","Ogni donazione, grande o piccola, fa la differenza nella vita delle persone che serviamo",
             "Insieme possiamo superare le sfide e costruire un futuro piu sano e luminoso","Il nostro impegno e' guidato dalla speranza di creare un mondo in cui nessuno sia lasciato indietro nella lotta per la salute e il benessere",

@@ -9,7 +9,7 @@
             <h3 class="cs-p-title">L'associazione</h3>
             <div class="cs-box">
                 <p class="cs-text">
-                    <b>Tum4World</b> è un'associazione <i>no-profit</i> he si dedica con passione a fornire cure e supporto
+                    <b>Tum4World</b> è un'associazione <i>no-profit</i> che si dedica con passione a fornire cure e supporto
                     alle persone nei paesi del terzo mondo. Attraverso il prezioso impegno dei suoi volontari e grazie alle
                     generose donazioni ricevute, l'associazione è in grado di realizzare interventi sanitari vitali in
                     comunità svantaggiate.
