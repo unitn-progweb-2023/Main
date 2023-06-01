@@ -9,6 +9,7 @@ public class Account implements Serializable {
     private String Cellulare;
     private String DataDiNascita;
     private String Username;
+    private String Password;
 
     public Account() {
     }

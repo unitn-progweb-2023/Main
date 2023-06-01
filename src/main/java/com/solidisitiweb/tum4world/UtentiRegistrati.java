@@ -1,5 +1,7 @@
 package com.solidisitiweb.tum4world;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.solidisitiweb.tum4world.model.Account;
 
 import javax.servlet.ServletException;
@@ -11,6 +13,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 import java.util.ArrayList;
+
 
 @WebServlet(name = "utentiRegistrati", value = "/dashboard/utentiRegistrati")
 public class UtentiRegistrati extends HttpServlet {
@@ -57,14 +60,13 @@ public class UtentiRegistrati extends HttpServlet {
         }
 
         try (PrintWriter out = response.getWriter()) {
-            //lei lo fa usando Gson di google, ma mi dice che non esiste...
-            /*JsonArray array = new JsonArray();
+            JsonArray array = new JsonArray();
             for(Account a : accounts) {
                 Gson gson = new Gson();
                 array.add(gson.toJson(a));
             }
             out.println(array);
-            out.flush();*/
+            out.flush();
         }
         catch (IOException e) {
             System.err.println(e);
