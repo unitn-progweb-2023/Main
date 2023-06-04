@@ -1,6 +1,6 @@
 package com.solidisitiweb.tum4world;
 
-import com.google.gson.Gson;
+import com.google.gson.*;
 import com.solidisitiweb.tum4world.model.Account;
 import com.solidisitiweb.tum4world.model.Aderente;
 import com.solidisitiweb.tum4world.model.Amministratore;
@@ -25,6 +25,7 @@ public class UtentiRegistrati extends HttpServlet {
     String user = "App";
     String password = "pw";
     Connection conn = null;
+    Gson gson;
 
     public void init() {
         try {
@@ -33,6 +34,7 @@ public class UtentiRegistrati extends HttpServlet {
         } catch (ClassNotFoundException | SQLException | NullPointerException e) {
             System.out.println(e);
         }
+        gson = new Gson();
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -71,7 +73,6 @@ public class UtentiRegistrati extends HttpServlet {
 
         try (PrintWriter out = response.getWriter()) {
             System.out.println("array.size()");
-            Gson gson = new Gson();
             System.out.println("all ok");
             //String userJson = gson.toJson(accounts);
             System.out.println("all ok");
