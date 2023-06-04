@@ -1,6 +1,7 @@
 package com.solidisitiweb.tum4world;
 
 import com.solidisitiweb.tum4world.model.Account;
+import com.solidisitiweb.tum4world.model.Simpatizzante;
 
 import java.io.*;
 import javax.servlet.ServletException;
@@ -17,8 +18,8 @@ public class GetDati extends HttpServlet {
 
         //prendo dati da database
 
-        Account account = new Account("Mario","Rossi","example@domain.com","3774185988","09/7/2000","minatel");
-        request.setAttribute("account", account);
+        //Account account = new Simpatizzante("Mario","Rossi","example@domain.com","3774185988","09/7/2000","minatel");
+        //request.setAttribute("account", account);
 
         if(page.equals("aderente")){
             getServletContext().getRequestDispatcher("/dashboard/aderente.jsp").forward(request, response);

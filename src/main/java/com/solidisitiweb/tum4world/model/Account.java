@@ -2,7 +2,7 @@ package com.solidisitiweb.tum4world.model;
 
 import java.io.Serializable;
 
-public class Account implements Serializable {
+public abstract class Account implements Serializable {
     private String Nome;
     private String Cognome;
     private String Email;

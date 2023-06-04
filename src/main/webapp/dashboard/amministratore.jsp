@@ -13,9 +13,7 @@
             <div class="max-width-small grid">
                 <div class="grid-element" >
                     <div class="form-contaienr">
-                        <form action="/dashboard/utentiRegistrati" method="get">
-                            <input type="submit" value="Utenti registrati">
-                        </form>
+                        <input type="submit" value="Utenti registrati" onclick="getUtenti()">
                     </div>
                     <div class="form-contaienr">
                         <form action="/dashboard/utentiSimpatizzanti" method="get">
@@ -41,5 +39,19 @@
             </div>
         <%@ include file="footer.html"%>
     </div>
+    <script>
+        function getUtenti() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    console.log(this.response);
+                    var response = JSON.parse(this.response);
+                    document.getElementById("footer-frase").innerHTML = response;
+                }
+            };
+            xhttp.open("GET", "utentiRegistrati", true);
+            xhttp.send();
+        }
+    </script>
 </body>
 </html>

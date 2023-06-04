@@ -1,8 +1,10 @@
 package com.solidisitiweb.tum4world;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.solidisitiweb.tum4world.model.Account;
+import com.solidisitiweb.tum4world.model.Aderente;
+import com.solidisitiweb.tum4world.model.Amministratore;
+import com.solidisitiweb.tum4world.model.Simpatizzante;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,7 +44,15 @@ public class UtentiRegistrati extends HttpServlet {
             String sql = "SELECT * FROM ACCOUNT";
             ResultSet results = stmt.executeQuery(sql);
             while (results.next()) {
-                Account a = new Account();
+                Account a;
+                String type = results.getString("Type");
+                if(type.equals("SI")){
+                    a = new Simpatizzante();
+                }else if(type.equals("AD")){
+                    a = new Aderente();
+                }else{
+                    a = new Amministratore();
+                }
                 a.setNome(results.getString("Nome"));
                 a.setCognome(results.getString("Cognome"));
                 a.setEmail(results.getString("Email"));
@@ -60,12 +70,12 @@ public class UtentiRegistrati extends HttpServlet {
         }
 
         try (PrintWriter out = response.getWriter()) {
-            JsonArray array = new JsonArray();
-            for(Account a : accounts) {
-                Gson gson = new Gson();
-                array.add(gson.toJson(a));
-            }
-            out.println(array);
+            System.out.println("array.size()");
+            Gson gson = new Gson();
+            System.out.println("all ok");
+            //String userJson = gson.toJson(accounts);
+            System.out.println("all ok");
+            //out.println(userJson);
             out.flush();
         }
         catch (IOException e) {
