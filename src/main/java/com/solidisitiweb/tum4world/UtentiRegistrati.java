@@ -6,7 +6,6 @@ import com.solidisitiweb.tum4world.model.Aderente;
 import com.solidisitiweb.tum4world.model.Amministratore;
 import com.solidisitiweb.tum4world.model.Simpatizzante;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -72,11 +71,8 @@ public class UtentiRegistrati extends HttpServlet {
         }
 
         try (PrintWriter out = response.getWriter()) {
-            System.out.println("array.size()");
-            System.out.println("all ok");
-            //String userJson = gson.toJson(accounts);
-            System.out.println("all ok");
-            //out.println(userJson);
+            String userJson = gson.toJson(accounts);
+            out.println(userJson);
             out.flush();
         }
         catch (IOException e) {
