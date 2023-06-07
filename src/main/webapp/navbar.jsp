@@ -8,6 +8,6 @@
   </ul>
   <ul class="navbar-menu">
     <li><a  class="navbar-menu-item sign-in"href=<%=response.encodeURL("./signin.jsp")%>>Sign-in</a></li>
-    <li><a  class="navbar-menu-item login"href=<%=response.encodeURL("./chisiamo.jsp")%>>Login</a></li>
+    <li><a  class="navbar-menu-item login"href=<%=response.encodeURL("./login.jsp")%>>Login</a></li>
   </ul>
 </div>

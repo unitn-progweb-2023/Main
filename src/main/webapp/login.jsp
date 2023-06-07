@@ -6,15 +6,19 @@
     <div class="container">
         <%@ include file="navbar.jsp"%>
         <h1 class="page-title">Login</h1>
-        <form class="max-width-x-small form" action="@TODO dove mandare i dati del login" method="POST">
+
+        <a> <%= (request.getAttribute("error") != null ? request.getAttribute("error") : "") %> </a><br>
+        <% request.removeAttribute("error"); %>
+
+        <form class="max-width-x-small form" action="./loginUtente" method="POST">
             <div class="form-ele-wrapper">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username">
             </div>
 
             <div class="form-ele-wrapper">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password">
                 <input class="mostra-password" type="checkbox" onclick="mostra_password()" id="mostrapassword">
                 <label for="mostrapassword"></label>
             </div>

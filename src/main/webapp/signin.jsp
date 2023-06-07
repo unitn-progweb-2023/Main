@@ -5,7 +5,11 @@
     <div class="container">
         <%@ include file="navbar.jsp"%>
         <h1 class="page-title">Registrazione</h1>
-        <form class="max-width-x-small form" action="@TODO dove mandare i dati della registrazione" onsubmit="return valida_form()" method="POST">
+
+        <a> <%= (request.getAttribute("error") != null ? request.getAttribute("error") : "") %> </a><br>
+        <% request.removeAttribute("error"); %>
+
+        <form class="max-width-x-small form" action="./registraUtente" onsubmit="return valida_form()" method="POST">
             <div class="form-row">
                 <div class="form-ele-wrapper">
                     <label class="obbligatorio" for="nome">Nome</label>
@@ -19,8 +23,8 @@
             </div>
 
             <div class="form-ele-wrapper">
-                <label class="obbligatorio" for="data_nascita">Data di nascita</label>
-                <input type="date" id="data_nascita" name="data_nascita">
+                <label class="obbligatorio" for="dataNascita">Data di nascita</label>
+                <input type="date" id="dataNascita" name="dataNascita">
             </div>
 
             <div class="form-row">
@@ -38,12 +42,12 @@
             <div class="radio">
                 <label class="obbligatorio">Tipologia utente:</label>
                 <div>
-                    <input type="radio" id="simpatizzante" name="tipo_utente" value="simpatizzante" checked>
+                    <input type="radio" id="simpatizzante" name="tipoUtente" value="SI" checked>
                     <label for="simpatizzante">simpatizzante</label>
                 </div>
 
                 <div>
-                    <input type="radio" id="aderente" name="tipo_utente" value="aderente">
+                    <input type="radio" id="aderente" name="tipoUtente" value="AD">
                     <label for="aderente">aderente</label>
                 </div>
             </div>
@@ -87,7 +91,7 @@
         }
         function valida_eta(){
             let ora = new Date();
-            let input = document.getElementById("data_nascita");
+            let input = document.getElementById("dataNascita");
             let data_nascita = new Date(input.value);
             let diff = new Date(ora - data_nascita);
             let eta = Math.abs(diff.getUTCFullYear() - 1970);
