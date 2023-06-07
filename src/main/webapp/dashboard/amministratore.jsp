@@ -10,28 +10,30 @@
 <body>
     <div class="container">
         <%@ include file="navbar.html"%>
-            <div class="max-width-small grid">
-                <div class="grid-element" >
-                    <div class="form-contaienr">
-                        <input type="submit" value="Utenti registrati" onclick="getUtenti()">
-                    </div>
-                    <div class="form-contaienr">
-                        <input type="submit" value="Utenti simpatizzanti" onclick="getSimpatizzanti()">
-                    </div>
-                    <div class="form-contaienr">
-                        <input type="submit" value="Utenti aderenti" onclick="getAderenti()">
-                    </div>
-                    <div class="form-contaienr">
-                        <input type="submit" value="Statistiche visite">
-                    </div>
-                    <div class="form-contaienr">
-                        <input type="submit" value="Donazioni ricevute">
-                    </div>
-                </div>
+        <div class="max-width-small page-container">
+            <div class="menu">
+                <button onclick="select(event,getUtenti)">Utenti registrati</button>
+                <button onclick="select(event,getSimpatizzanti)">Utenti simpatizzanti</button>
+                <button onclick="select(event,getAderenti)">Utenti aderenti</button>
+                <button onclick="select(event,()=>{})">Statistiche visite</button>
+                <button onclick="select(event,()=>{})">Donazioni ricevute</button>
             </div>
+        </div>
         <%@ include file="footer.html"%>
     </div>
     <script>
+        function select(e, func) {
+            var menuDiv = document.querySelector('.menu');
+            var buttons = menuDiv.getElementsByTagName('button');
+
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('selected');
+            }
+
+            e.target.classList.add("selected");
+
+            func();
+        }
         function getUtenti() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
