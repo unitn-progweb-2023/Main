@@ -6,9 +6,6 @@
         <%@ include file="navbar.jsp"%>
         <h1 class="page-title">Registrazione</h1>
 
-        <a> <%= (request.getAttribute("error") != null ? request.getAttribute("error") : "") %> </a><br>
-        <% request.removeAttribute("error"); %>
-
         <form class="max-width-x-small form" action="./registraUtente" onsubmit="return valida_form()" method="POST">
             <div class="form-row">
                 <div class="form-ele-wrapper">
@@ -79,6 +76,14 @@
             </div>
         </form>
         <%@ include file="footer.html"%>
+        <%@ include file="notify-box.html"%>
+
+        <% if(request.getAttribute("error") != null){ %>
+            <script>
+                notify(<%= (String) request.getAttribute("error") %>);
+            </script>
+        <% } %>
+        <% request.removeAttribute("error"); %>
     </div>
     <script>
         function valida_nome(){
@@ -120,13 +125,34 @@
             return psw === confermapsw && /(?=.*[0-9])(?=.*[dD])(?=.*[eE])(?=.*[gG])(?=.*[lL])(?=.*[$!?])(?=.*[A-Z]).{8,}/.test(psw);
         }
         function valida_form(){
-            if(!valida_nome()) return false;
-            if(!valida_cognome()) return false;
-            if(!valida_eta()) return false;
-            if(!valida_telefono()) return false;
-            if(!valida_mail()) return false;
-            if(!valida_username()) return false;
-            if(!valida_password()) return false;
+            if(!valida_nome()) {
+                notify("Nome non valido: inserire solo spazi, lettere e '");
+                return false;
+            }
+            if(!valida_cognome()) {
+                notify("Cognome non valido: inserire solo spazi, lettere e '");
+                return false;
+            }
+            if(!valida_eta()) {
+                notify("Devi avere più di 18 anni");
+                return false;
+            }
+            if(!valida_telefono()) {
+                notify("Numero di telefono non valido: inserire 10 cifre consecutive");
+                return false;
+            }
+            if(!valida_mail()) {
+                notify("Mail non valida");
+                return false;
+            }
+            if(!valida_username()) {
+                notify("Username obbligatorio")
+                return false;
+            }
+            if(!valida_password()) {
+                notify("Password non valida: le password inserite devono corrispondere, essere lunghe 8 caratteri, contenere i caratteri d, e, g, l, avere almeno un carattere numerico, un carattere maiuscolo e un carattere tra $, ! e ?");
+                return false;
+            }
 
             return true;
         }

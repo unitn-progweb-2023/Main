@@ -1,5 +1,6 @@
 package com.solidisitiweb.tum4world;
 
+import com.google.gson.Gson;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -7,9 +8,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.*;
 
 @WebServlet(name = "registraUtente", value = "/registraUtente")
 public class RegistraUtente extends HttpServlet {
+    String dbURL = "jdbc:derby://localhost:1527/Tum4World";
+    String user = "App";
+    String password = "pw";
+    Connection conn = null;
+    Gson gson;
+
+    public void init() {
+        try {
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
+            conn = DriverManager.getConnection(dbURL, user, password);
+        } catch (ClassNotFoundException | SQLException | NullPointerException e) {
+            System.out.println(e);
+        }
+        gson = new Gson();
+    }
+
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nome = request.getParameter("nome");
@@ -21,22 +39,62 @@ public class RegistraUtente extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        // devo fare ancora validazione dati?
+        try {
+            Statement stmt = conn.createStatement();
+            String sql = "SELECT * FROM ACCOUNT WHERE Username = '" + username + "'";
+            ResultSet results = stmt.executeQuery(sql);
 
-        if(true){ // username non presente nel database
-            // crea utente con dati inseriti e inseriscilo nel database
+            if(results.next()){ // username già presente nel database
+                results.close();
+                stmt.close();
 
+                request.setAttribute("error", "05: username non disponibile");
+                request.getRequestDispatcher("/signin.jsp").forward(request, response);
+            }else {
+                results.close();
+                stmt.close();
+                // crea utente con dati inseriti e inseriscilo nel database
+                System.out.println(dataNascita);
+                try {
+                    // executeUpdate piange con le date
+                    // ? è un placeholder di un valore che verrà specificato in seguito
+                    PreparedStatement pstmt = conn.prepareStatement("INSERT INTO ACCOUNT" +
+                            "(Username, DataDiNascita, Nome, Cognome, Email, Cellulare, Password, Type)" +
+                            "VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
+                    pstmt.setString(1, username);
+                    pstmt.setDate(2, Date.valueOf(dataNascita));
+                    pstmt.setString(3, nome);
+                    pstmt.setString(4, cognome);
+                    pstmt.setString(5, email);
+                    pstmt.setString(6, telefono);
+                    pstmt.setString(7, password);
+                    pstmt.setString(8, tipoUtente);
 
-            HttpSession session = request.getSession();
-            session.setAttribute("type", tipoUtente);
-            session.setAttribute("logged", true);
-            session.setAttribute("username", username);
+                    pstmt.executeUpdate();
+                    pstmt.close();
 
-            response.sendRedirect("registrazioneconfermata.jsp");
+                    HttpSession session = request.getSession();
+                    session.setAttribute("tipoUtente", tipoUtente);
+                    session.setAttribute("username", username);
+
+                    response.sendRedirect("registrazioneconfermata.jsp");
+                }
+                catch (SQLException | NullPointerException e) {
+                    System.err.println(e);
+                    response.sendRedirect("error.html");
+                }
+            }
+        } catch (SQLException | NullPointerException e) {
+            System.err.println(e);
+            response.sendRedirect("error.html");
         }
-        else{
-            request.setAttribute("error", "05: username non disponibile");
-            request.getRequestDispatcher("/signin.jsp").forward(request, response);
+    }
+
+    public void destroy() {
+        try {
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
