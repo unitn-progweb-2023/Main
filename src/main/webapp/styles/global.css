@@ -520,7 +520,7 @@ select:-webkit-autofill:focus {
 }
 
 #portal{
-    position: absolute;
+    position: fixed;
     z-index: 999;
     right: var(--p-m);
     top: var(--p-m);
