@@ -1,3 +1,46 @@
+.page-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--p-m);
+    margin-bottom: var(--p-m);
+    outline: red;
+}
+
+.menu {
+    padding: var(--p-sm);
+    background-color: var(--white);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 29px 0px;
+    border-radius: var(--p-sm);
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu > button{
+    all: unset;
+    cursor: pointer;
+    padding: var(--p-xs) var(--p-sm);
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid var(--softgray);
+}
+
+.menu > button:hover{
+    border-bottom: 2px solid var(--black);
+}
+
+.menu > button.selected{
+    color: var(--primary);
+    border-bottom: 2px solid var(--primary);
+}
+
+
+
+
+
+
+
+
 .grid{
     flex-grow: 1;
     display: grid;

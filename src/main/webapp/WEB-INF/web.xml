@@ -9,4 +9,25 @@
     <welcome-file-list>
         <welcome-file>home.jsp</welcome-file>
     </welcome-file-list>
+    <!-- FILTRI -->
+    <filter>
+        <filter-name>FiltroVisite</filter-name>
+        <filter-class>com.solidisitiweb.tum4world.FilterVisited</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FiltroVisite</filter-name>
+        <url-pattern>/home.jsp</url-pattern>
+        <url-pattern>/attivita.jsp</url-pattern>
+        <url-pattern>/paginaattivita_1.jsp</url-pattern>
+        <url-pattern>/paginaattivita_2.jsp</url-pattern>
+        <url-pattern>/paginaattivita_3.jsp</url-pattern>
+        <url-pattern>/signin.jsp</url-pattern>
+        <url-pattern>/chisiamo.jsp</url-pattern>
+        <url-pattern>/contatti.jsp</url-pattern>
+        <url-pattern>/login.jsp</url-pattern>
+        <url-pattern>/registrazioneconfermata.jsp</url-pattern>
+        <url-pattern>/invioconfermato.jsp</url-pattern>
+        <url-pattern>/dashboard/aderente.jsp</url-pattern>
+        <url-pattern>/dashboard/simpatizzante.jsp</url-pattern>
+    </filter-mapping>
 </web-app>
