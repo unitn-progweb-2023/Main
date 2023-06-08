@@ -5,12 +5,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 @WebServlet(name = "donazioni", value = "/dashboard/donazioni")
 public class Donazioni extends HttpServlet {
@@ -31,22 +28,23 @@ public class Donazioni extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
-        response.setCharacterEncoding("utf-8");
+        // response.setContentType("text/html");
+        // response.setCharacterEncoding("utf-8");
 
         try {
-            Statement stmt = conn.createStatement();
-            String sql = "INSERT INTO DONAZIONE VALUES (" + request.getParameter("importo") + ", CURRENT_TIMESTAMP, 'admin')"; //TODO:DA MODIFICARE con utente attualmente loggato
-            stmt.executeQuery(sql);
-            stmt.close();
+            HttpSession session = request.getSession();
+            String username = (String) session.getAttribute("username");
+            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO DONAZIONE " +
+                                                                "VALUES(?, CURRENT_TIMESTAMP, ?)");
+            pstmt.setInt(1, Integer.parseInt(request.getParameter("importo")));
+            pstmt.setString(2, username);
 
+            pstmt.executeUpdate();
+            pstmt.close();
+            request.getRequestDispatcher("./aderente.jsp").forward(request, response);
         } catch (SQLException | NullPointerException e) {
             System.err.println(e);
-            response.sendRedirect("error.html");
-        }
-
-        try {
-            request.getRequestDispatcher("./aderente.jsp").forward(request, response);
+            response.sendRedirect("/error.html");
         } catch (ServletException e) {
             throw new RuntimeException(e);
         }

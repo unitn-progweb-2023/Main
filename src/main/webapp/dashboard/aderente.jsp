@@ -71,7 +71,7 @@
                     <h1>Effettua una donazione a Tum4World</h1>
                     <form class="form dona" action="./donazioni" method="get">
                         <label class="obbligatorio" for="dona" >Importo in €</label>
-                        <input id="dona" type="number" min="0" value="importo">
+                        <input id="dona" type="number" min="0" name="importo">
                         <input type="submit" value="Dona">
                     </form>
                 </div>

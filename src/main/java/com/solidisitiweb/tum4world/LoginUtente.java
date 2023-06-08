@@ -44,21 +44,21 @@ public class LoginUtente extends HttpServlet {
                 ResultSet results = stmt.executeQuery(sql);
 
                 if(results.next()){
-                    String psw = results.getString("Password");
+                    String pswdb = results.getString("Password");
                     String tipoUtente = results.getString("Type");
                     results.close();
                     stmt.close();
 
-                    if(password.equals(psw)){
+                    if(password.equals(pswdb)){
                         HttpSession session = request.getSession();
                         session.setAttribute("tipoUtente", tipoUtente);
                         session.setAttribute("username", username);
 
                         if(tipoUtente.equals("AD")){
-                            response.sendRedirect("./dashboard/aderente.jsp");
+                            response.sendRedirect("dashboard/aderente.jsp");
                         }
                         else if(tipoUtente.equals(("SI"))){
-                            response.sendRedirect("./dashboard/simpatizzante.jsp");
+                            response.sendRedirect("dashboard/simpatizzante.jsp");
                         }
                         else if(tipoUtente.equals("AM")){
                             response.sendRedirect("dashboard/amministratore.jsp");
