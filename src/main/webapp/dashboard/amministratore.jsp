@@ -73,7 +73,7 @@
                 </div>
                 <div id="visite" class="content-visite">
                     <div id="visite-tot"></div>
-                    <button onclick="azzeraVisite()">Azzera Visite</button>
+                    <button id="deleteVisite" onclick="azzeraVisite()">Azzera Visite</button>
                     <div id="chart" class="span-2 grafico"></div>
                 </div>
                 <div id="donazioni" class="content-default grafico"></div>
@@ -86,7 +86,16 @@
         let page = "default";
 
         function azzeraVisite(){
-            console.log("azzera");
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    getVisite();
+                }
+            };
+            xhttp.open("GET", "deleteVisit", true);
+            xhttp.send();
+
+
         }
 
         function riempiTabella(id,data){
@@ -180,7 +189,7 @@
 
                     document.getElementById("visite-tot").innerText = ("Visite totali: " + tot)
 
-                    console.log(this.response);
+                    //console.log(this.response);
 
                     const chart = Highcharts.chart('chart', {
                         chart: {
