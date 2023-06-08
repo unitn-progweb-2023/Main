@@ -16,7 +16,7 @@
                 <button onclick="select(event,getSimpatizzanti)">Utenti simpatizzanti</button>
                 <button onclick="select(event,getAderenti)">Utenti aderenti</button>
                 <button onclick="select(event,()=>{})">Statistiche visite</button>
-                <button onclick="select(event,()=>{})">Donazioni ricevute</button>
+                <button onclick="select(event,getDonazioni)">Donazioni ricevute</button>
             </div>
         </div>
         <%@ include file="footer.html"%>
@@ -68,6 +68,18 @@
                 }
             };
             xhttp.open("GET", "utentiSimpatizzanti", true);
+            xhttp.send();
+        }
+        function getDonazioni() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    console.log(this.response);
+                    var response = JSON.parse(this.response);
+                    //da aggiungere alle tabelle
+                }
+            };
+            xhttp.open("GET", "getDonazioni", true);
             xhttp.send();
         }
     </script>

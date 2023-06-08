@@ -1,6 +1,5 @@
 package com.solidisitiweb.tum4world;
 
-import com.google.gson.Gson;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +15,6 @@ public class RegistraUtente extends HttpServlet {
     String user = "App";
     String password = "pw";
     Connection conn = null;
-    Gson gson;
 
     public void init() {
         try {
@@ -25,7 +23,6 @@ public class RegistraUtente extends HttpServlet {
         } catch (ClassNotFoundException | SQLException | NullPointerException e) {
             System.out.println(e);
         }
-        gson = new Gson();
     }
 
     @Override
