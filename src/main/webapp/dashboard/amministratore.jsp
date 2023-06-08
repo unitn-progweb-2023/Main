@@ -199,13 +199,13 @@
             xhttp.send();*/
         }
         function getDonazioni() {
-            /*var xhttp = new XMLHttpRequest();
+            var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState === 4 && this.status === 200) {
-                    var response = JSON.parse(this.response);*/
+                    var response = JSON.parse(this.response);
 
-                    let response = [1,20,234,34,12,54,0,0,0,0,0,0];
-                    console.log(this.response);
+                    // let response = [1,20,234,34,12,54,0,0,0,0,0,0];
+                    // console.log(this.response);
 
                     const chart = Highcharts.chart('donazioni', {
                         chart: {
@@ -233,11 +233,11 @@
                             data: response,
                             showInLegend: false
                         }],
-                    });/*
+                    });
                 }
             };
-            xhttp.open("GET", "donazioni", true);
-            xhttp.send();*/
+            xhttp.open("GET", "getDonazioni", true);
+            xhttp.send();
         }
     </script>
 </body>
