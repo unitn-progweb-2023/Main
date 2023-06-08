@@ -1,10 +1,8 @@
 package com.solidisitiweb.tum4world;
 
 import com.google.gson.Gson;
-import com.solidisitiweb.tum4world.model.Aderente;
 import com.solidisitiweb.tum4world.model.Visita;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +13,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 @WebServlet(name = "visite", value = "/dashboard/visite")
-public class Visite extends HttpServlet {
+public class GetVisite extends HttpServlet {
 
     String dbURL = "jdbc:derby://localhost:1527/Tum4World";
     String user = "App";
