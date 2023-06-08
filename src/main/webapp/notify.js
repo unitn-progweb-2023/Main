@@ -5,5 +5,5 @@ const notify = (message) => {
     const node = document.createTextNode(message);
     p.appendChild(node)
     portal.appendChild(p)
-    setTimeout(()=>{p.remove()},2000)
+    setTimeout(()=>{p.remove()},12000)
 }
