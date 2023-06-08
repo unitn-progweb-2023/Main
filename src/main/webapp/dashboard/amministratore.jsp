@@ -15,8 +15,8 @@
                 <button onclick="select(event,getUtenti,'registrati')">Utenti registrati</button>
                 <button onclick="select(event,getSimpatizzanti,'simpatizzanti')">Utenti simpatizzanti</button>
                 <button onclick="select(event,getAderenti,'aderenti')">Utenti aderenti</button>
-                <button onclick="select(event,()=>{},'visite')">Statistiche visite</button>
-                <button onclick="select(event,()=>{},'donazioni')">Donazioni ricevute</button>
+                <button onclick="select(event,getVisite,'visite')">Statistiche visite</button>
+                <button onclick="select(event,getDonazioni,'donazioni')">Donazioni ricevute</button>
             </div>
             <div class="content">
                 <div id="default" class="show content-default">
@@ -24,7 +24,7 @@
                 </div>
 
                 <div id="registrati" class="content-table">
-                    <table id="registrati-table" class="table">
+                    <table class="table">
                         <thead>
                         <tr>
                             <th>Nome</th>
@@ -35,13 +35,12 @@
                             <th>Data di nascita</th>
                         </tr>
                         </thead>
-
-                        <tbody>
+                        <tbody id="registrati-table">
                         </tbody>
                     </table>
                 </div>
                 <div id="simpatizzanti" class="content-table">
-                    <table id="simpatizzanti-table" class="table">
+                    <table class="table">
                         <thead>
                         <tr>
                             <th>Nome</th>
@@ -52,13 +51,12 @@
                             <th>Data di nascita</th>
                         </tr>
                         </thead>
-
-                        <tbody>
+                        <tbody id="simpatizzanti-table" >
                         </tbody>
                     </table>
                 </div>
                 <div id="aderenti" class="content-table">
-                    <table id="aderenti-table" class="table">
+                    <table class="table">
                         <thead>
                         <tr>
                             <th>Nome</th>
@@ -69,27 +67,31 @@
                             <th>Data di nascita</th>
                         </tr>
                         </thead>
-
-                        <tbody>
+                        <tbody id="aderenti-table">
                         </tbody>
                     </table>
                 </div>
-                <div id="visite" class="content-default">
-                    statistiche visite
+                <div id="visite" class="content-visite">
+                    <div>Visite totali: 123</div>
+                    <button onclick="azzeraVisite()">Azzera Visite</button>
+                    <div id="chart" class="span-2"></div>
                 </div>
-                <div id="donazioni" class="content-default">
-                    donazioni ricevute
-                </div>
+                <div id="donazioni" class="content-default"></div>
             </div>
         </div>
         <%@ include file="footer.html"%>
     </div>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
     <script>
         let page = "default";
 
+        function azzeraVisite(){
+            console.log("azzera");
+        }
+
         function riempiTabella(id,data){
             const table = document.getElementById(id);
-            for (let i = table.rows.length - 1; i > 0; i--) {
+            for (let i = table.rows.length; i > 0; i--) {
                 table.deleteRow(i);
             }
             data.forEach(function(user) {
@@ -159,6 +161,83 @@
             };
             xhttp.open("GET", "utentiSimpatizzanti", true);
             xhttp.send();
+        }
+        function getVisite() {
+            /*var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    var response = JSON.parse(this.response);*/
+
+                    let response = [1,20,234,34,12,54,0,0,0,0,0,0];
+                    console.log(this.response);
+
+                    const chart = Highcharts.chart('chart', {
+                        chart: {
+                            type: 'column',
+                            backgroundColor: "#ecfeff"
+                        },
+                        title: {
+                            text: 'Visite per pagina'
+                        },
+                        xAxis: {
+                            categories: ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"]
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Numero Visite'
+                            }
+                        },
+                        series: [{
+                            name:"",
+                            data: response,
+                            showInLegend: false
+                        }],
+                    });
+                /*}
+            };
+            xhttp.open("GET", "visite", true);
+            xhttp.send();*/
+        }
+        function getDonazioni() {
+            /*var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    var response = JSON.parse(this.response);*/
+
+                    let response = [1,20,234,34,12,54,0,0,0,0,0,0];
+                    console.log(this.response);
+
+                    const chart = Highcharts.chart('donazioni', {
+                        chart: {
+                            type: 'column',
+                            backgroundColor: "#ecfeff"
+                        },
+                        title: {
+                            text: 'Totale donazioni per mese'
+                        },
+                        xAxis: {
+                            categories: ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"]
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Totale donazioni'
+                            },
+                            labels: {
+                                formatter: function() {
+                                    return this.value + ' €';
+                                }
+                            },
+                        },
+                        series: [{
+                            name:"",
+                            data: response,
+                            showInLegend: false
+                        }],
+                    });/*
+                }
+            };
+            xhttp.open("GET", "donazioni", true);
+            xhttp.send();*/
         }
     </script>
 </body>
