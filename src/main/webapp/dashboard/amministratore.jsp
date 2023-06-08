@@ -163,12 +163,12 @@
             xhttp.send();
         }
         function getVisite() {
-            /*var xhttp = new XMLHttpRequest();
+            var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState === 4 && this.status === 200) {
-                    var response = JSON.parse(this.response);*/
+                    var response = JSON.parse(this.response);
 
-                    let response = [1,20,234,34,12,54,0,0,0,0,0,0];
+                  //  let response = [1,20,234,34,12,54,0,0,0,0,0,0];
                     console.log(this.response);
 
                     const chart = Highcharts.chart('chart', {
@@ -180,7 +180,7 @@
                             text: 'Visite per pagina'
                         },
                         xAxis: {
-                            categories: ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"]
+                            categories: ["Homepage", "Attivita", "Fornitura Cure", "Programmi Educazione", "Progetti di Sviluppo", "SignIn", "Chi Siamo", "Contatti", "Login", "Registrazione Confermata", "Invio Confermato", "Aderente", "Simpatizzante"]
                         },
                         yAxis: {
                             title: {
@@ -193,10 +193,10 @@
                             showInLegend: false
                         }],
                     });
-                /*}
+                }
             };
             xhttp.open("GET", "visite", true);
-            xhttp.send();*/
+            xhttp.send();
         }
         function getDonazioni() {
             var xhttp = new XMLHttpRequest();
@@ -205,7 +205,7 @@
                     var response = JSON.parse(this.response);
 
                     // let response = [1,20,234,34,12,54,0,0,0,0,0,0];
-                    // console.log(this.response);
+                     console.log(this.response);
 
                     const chart = Highcharts.chart('donazioni', {
                         chart: {
