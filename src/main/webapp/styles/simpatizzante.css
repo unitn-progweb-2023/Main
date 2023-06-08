@@ -1,3 +1,15 @@
+:root{
+    --primary: #FFFFFF !important;
+    --black: #DCA54C !important;
+    --gray: #DCA54C !important;
+    --softgray: #2E2D2F !important;
+    --white: #09090B !important;
+    --white-trasparent: #09090BAA !important;
+    --primary-hover: #CCCED7 !important;
+    --hover: #DCA54C60 !important;
+    --error: #FF7070 !important;
+    --error-hover: #FF8080 !important;
+}
 .grid{
     flex-grow: 1;
     display: grid;

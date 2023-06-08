@@ -72,7 +72,7 @@
                     </table>
                 </div>
                 <div id="visite" class="content-visite">
-                    <div>Visite totali: 123</div>
+                    <div id="visite-tot"></div>
                     <button onclick="azzeraVisite()">Azzera Visite</button>
                     <div id="chart" class="span-2 grafico"></div>
                 </div>
@@ -168,19 +168,30 @@
                 if (this.readyState === 4 && this.status === 200) {
                     var response = JSON.parse(this.response);
 
-                  //  let response = [1,20,234,34,12,54,0,0,0,0,0,0];
+                    const category = [];
+                    const data = [];
+
+                    response.forEach((ele)=>{
+                        category.push(ele.page);
+                        data.push(ele.visit);
+                    })
+
+                    const tot = data.reduce((prec, ele)=> prec+ele);
+
+                    document.getElementById("visite-tot").innerText = ("Visite totali: " + tot)
+
                     console.log(this.response);
 
                     const chart = Highcharts.chart('chart', {
                         chart: {
                             type: 'column',
-                            backgroundColor: "#ecfeff"
+                            backgroundColor: "#E4D8B4"
                         },
                         title: {
                             text: 'Visite per pagina'
                         },
                         xAxis: {
-                            categories: ["Homepage", "Attivita", "Fornitura Cure", "Programmi Educazione", "Progetti di Sviluppo", "SignIn", "Chi Siamo", "Contatti", "Login", "Registrazione Confermata", "Invio Confermato", "Aderente", "Simpatizzante"]
+                            categories: category
                         },
                         yAxis: {
                             title: {
@@ -189,7 +200,7 @@
                         },
                         series: [{
                             name:"",
-                            data: response,
+                            data: data,
                             showInLegend: false
                         }],
                     });
@@ -199,18 +210,18 @@
             xhttp.send();
         }
         function getDonazioni() {
-            var xhttp = new XMLHttpRequest();
+            /*var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState === 4 && this.status === 200) {
-                    var response = JSON.parse(this.response);
+                    var response = JSON.parse(this.response);*/
 
-                    // let response = [1,20,234,34,12,54,0,0,0,0,0,0];
-                     console.log(this.response);
+                        let response = [1,20,234,34,12,54,0,0,0,0,0,0];
+                     //console.log(this.response);
 
                     const chart = Highcharts.chart('donazioni', {
                         chart: {
                             type: 'column',
-                            backgroundColor: "#ecfeff"
+                            backgroundColor: "#E4D8B4"
                         },
                         title: {
                             text: 'Totale donazioni per mese'
@@ -234,10 +245,10 @@
                             showInLegend: false
                         }],
                     });
-                }
+                /*}
             };
             xhttp.open("GET", "getDonazioni", true);
-            xhttp.send();
+            xhttp.send();*/
         }
     </script>
 </body>
