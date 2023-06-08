@@ -34,9 +34,50 @@
     border-bottom: 2px solid var(--primary);
 }
 
+.content{
+    flex-grow: 1;
+    display: flex;
+    background-color: var(--white);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 29px 0px;
+    border-radius: var(--p-sm);
+    padding: var(--p-m);
+}
 
+.content > div{
+    display: none;
+}
 
+.content > div.show{
+    display: flex;
+}
 
+.content-default{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-table{
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.table{
+    flex-grow: 1;
+    border-collapse: collapse;
+}
+
+.table > tbody > tr:nth-of-type(odd) > td{
+    background-color: var(--softgray);
+    padding: var(--p-xs);
+}
+
+.table > tbody > tr > td{
+    padding: var(--p-xs);
+}
 
 
 
