@@ -205,7 +205,7 @@
                     var response = JSON.parse(this.response);
 
                     // let response = [1,20,234,34,12,54,0,0,0,0,0,0];
-                    // console.log(this.response);
+                    console.log(this.response);
 
                     const chart = Highcharts.chart('donazioni', {
                         chart: {
