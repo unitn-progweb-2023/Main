@@ -12,23 +12,113 @@
         <%@ include file="navbar.html"%>
         <div class="max-width-small page-container">
             <div class="menu">
-                <button onclick="select(event,getUtenti)">Utenti registrati</button>
-                <button onclick="select(event,getSimpatizzanti)">Utenti simpatizzanti</button>
-                <button onclick="select(event,getAderenti)">Utenti aderenti</button>
-                <button onclick="select(event,()=>{})">Statistiche visite</button>
-                <button onclick="select(event,()=>{})">Donazioni ricevute</button>
+                <button onclick="select(event,getUtenti,'registrati')">Utenti registrati</button>
+                <button onclick="select(event,getSimpatizzanti,'simpatizzanti')">Utenti simpatizzanti</button>
+                <button onclick="select(event,getAderenti,'aderenti')">Utenti aderenti</button>
+                <button onclick="select(event,()=>{},'visite')">Statistiche visite</button>
+                <button onclick="select(event,()=>{},'donazioni')">Donazioni ricevute</button>
+            </div>
+            <div class="content">
+                <div id="default" class="show content-default">
+                    Seleziona una voce del menu!
+                </div>
+
+                <div id="registrati" class="content-table">
+                    <table id="registrati-table" class="table">
+                        <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Cognome</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Cellulare</th>
+                            <th>Data di nascita</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="simpatizzanti" class="content-table">
+                    <table id="simpatizzanti-table" class="table">
+                        <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Cognome</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Cellulare</th>
+                            <th>Data di nascita</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="aderenti" class="content-table">
+                    <table id="aderenti-table" class="table">
+                        <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Cognome</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Cellulare</th>
+                            <th>Data di nascita</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="visite" class="content-default">
+                    statistiche visite
+                </div>
+                <div id="donazioni" class="content-default">
+                    donazioni ricevute
+                </div>
             </div>
         </div>
         <%@ include file="footer.html"%>
     </div>
     <script>
-        function select(e, func) {
-            var menuDiv = document.querySelector('.menu');
-            var buttons = menuDiv.getElementsByTagName('button');
+        let page = "default";
 
-            for (var i = 0; i < buttons.length; i++) {
+        function riempiTabella(id,data){
+            const table = document.getElementById(id);
+            for (let i = table.rows.length - 1; i > 0; i--) {
+                table.deleteRow(i);
+            }
+            data.forEach(function(user) {
+                const row = table.insertRow();
+
+                row.insertCell().textContent = user.Nome;
+                row.insertCell().textContent = user.Cognome;
+                row.insertCell().textContent = user.Username;
+                row.insertCell().textContent = user.Email;
+                row.insertCell().textContent = user.Cellulare;
+                row.insertCell().textContent = user.DataDiNascita;
+
+            });
+        }
+
+        function select(e, func, selectedPage) {
+            const menuDiv = document.querySelector('.menu');
+            const buttons = menuDiv.getElementsByTagName('button');
+            for (let i = 0; i < buttons.length; i++) {
                 buttons[i].classList.remove('selected');
             }
+
+            const oldElement = document.getElementById(page);
+            oldElement.classList.remove("show");
+
+            const newElement = document.getElementById(selectedPage);
+            newElement.classList.add("show");
+
+            page = selectedPage;
 
             e.target.classList.add("selected");
 
@@ -38,9 +128,9 @@
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState === 4 && this.status === 200) {
-                    console.log(this.response);
                     var response = JSON.parse(this.response);
-                    //da aggiungere alle tabelle
+
+                    riempiTabella("registrati-table", response);
                 }
             };
             xhttp.open("GET", "utentiRegistrati", true);
@@ -50,9 +140,9 @@
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState === 4 && this.status === 200) {
-                    console.log(this.response);
                     var response = JSON.parse(this.response);
-                    //da aggiungere alle tabelle
+
+                    riempiTabella("aderenti-table", response);
                 }
             };
             xhttp.open("GET", "utentiAderenti", true);
@@ -62,9 +152,9 @@
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState === 4 && this.status === 200) {
-                    console.log(this.response);
                     var response = JSON.parse(this.response);
-                    //da aggiungere alle tabelle
+
+                    riempiTabella("simpatizzanti-table", response);
                 }
             };
             xhttp.open("GET", "utentiSimpatizzanti", true);
