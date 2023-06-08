@@ -74,9 +74,9 @@
                 <div id="visite" class="content-visite">
                     <div>Visite totali: 123</div>
                     <button onclick="azzeraVisite()">Azzera Visite</button>
-                    <div id="chart" class="span-2"></div>
+                    <div id="chart" class="span-2 grafico"></div>
                 </div>
-                <div id="donazioni" class="content-default"></div>
+                <div id="donazioni" class="content-default grafico"></div>
             </div>
         </div>
         <%@ include file="footer.html"%>
