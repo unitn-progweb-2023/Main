@@ -67,7 +67,7 @@
             <div class="grid-element column-span-2">
                 <div class="form-contaienr dona">
                     <h1>Effettua una donazione a Tum4World</h1>
-                    <form class="form dona" action="./donazioni" method="get">
+                    <form class="form dona" action="./donazioni" method="post">
                         <label class="obbligatorio" for="dona" >Importo in €</label>
                         <input id="dona" type="number" min="0" name="importo">
                         <input type="submit" value="Dona">

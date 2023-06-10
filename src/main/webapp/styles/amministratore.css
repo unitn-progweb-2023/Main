@@ -1,3 +1,17 @@
+:root{
+    --primary: #DC8850 !important;
+    --black: #282425 !important;
+    --gray: #F9F7FD !important;
+    --softgray: #6A808A !important;
+    --white: #E4D8B4 !important;
+    --white-trasparent: #E4D8B460 !important;
+    --primary-hover: #D77433 !important;
+    --hover: #28242560 !important;
+    --error: #DC2828 !important;
+    --error-hover: #EC4848 !important;
+}
+
+
 .page-container {
     flex-grow: 1;
     display: flex;
@@ -75,7 +89,7 @@
 }
 
 .table > tbody > tr:nth-of-type(odd) > td{
-    background-color: var(--softgray);
+    background-color: #8EBEA260;
     padding: var(--p-xs);
 }
 
@@ -125,4 +139,8 @@
 
 .span-2{
     grid-column: span 2;
+}
+
+.grafico{
+    min-height: 350px;
 }

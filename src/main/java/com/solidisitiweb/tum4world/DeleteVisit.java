@@ -9,11 +9,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.*;
 
-@WebServlet(name = "donazioni", value = "/dashboard/donazioni")
-public class Donazioni extends HttpServlet {
-
+@WebServlet(name = "deleteVisit", value = "/dashboard/deleteVisit")
+public class DeleteVisit extends HttpServlet{
     String dbURL = "jdbc:derby://localhost:1527/Tum4World";
-
     String user = "App";
     String password = "pw";
     Connection conn = null;
@@ -27,26 +25,19 @@ public class Donazioni extends HttpServlet {
         }
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // response.setContentType("text/html");
         // response.setCharacterEncoding("utf-8");
 
         try {
-            HttpSession session = request.getSession();
-            String username = (String) session.getAttribute("username");
-            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO DONAZIONE " +
-                                                                "VALUES(?, CURRENT_TIMESTAMP, ?)");
-            pstmt.setInt(1, Integer.parseInt(request.getParameter("importo")));
-            pstmt.setString(2, username);
-
-            pstmt.executeUpdate();
-            pstmt.close();
-            request.getRequestDispatcher("./aderente.jsp").forward(request, response);
+            Statement stmt = conn.createStatement();
+            String sql = "UPDATE VISITE SET NumVisite = 0";
+            stmt.executeUpdate(sql);
+            System.out.println("try to delete");
+            stmt.close();
         } catch (SQLException | NullPointerException e) {
             System.err.println(e);
             response.sendRedirect("/error.html");
-        } catch (ServletException e) {
-            throw new RuntimeException(e);
         }
     }
 
@@ -57,4 +48,5 @@ public class Donazioni extends HttpServlet {
             e.printStackTrace();
         }
     }
+
 }

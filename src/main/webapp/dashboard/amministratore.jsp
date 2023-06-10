@@ -72,11 +72,11 @@
                     </table>
                 </div>
                 <div id="visite" class="content-visite">
-                    <div>Visite totali: 123</div>
-                    <button onclick="azzeraVisite()">Azzera Visite</button>
-                    <div id="chart" class="span-2"></div>
+                    <div id="visite-tot"></div>
+                    <button id="deleteVisite" onclick="azzeraVisite()">Azzera Visite</button>
+                    <div id="chart" class="span-2 grafico"></div>
                 </div>
-                <div id="donazioni" class="content-default"></div>
+                <div id="donazioni" class="content-default grafico"></div>
             </div>
         </div>
         <%@ include file="footer.html"%>
@@ -86,7 +86,16 @@
         let page = "default";
 
         function azzeraVisite(){
-            console.log("azzera");
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    getVisite();
+                }
+            };
+            xhttp.open("GET", "deleteVisit", true);
+            xhttp.send();
+
+
         }
 
         function riempiTabella(id,data){
@@ -163,24 +172,35 @@
             xhttp.send();
         }
         function getVisite() {
-            /*var xhttp = new XMLHttpRequest();
+            var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState === 4 && this.status === 200) {
-                    var response = JSON.parse(this.response);*/
+                    var response = JSON.parse(this.response);
 
-                    let response = [1,20,234,34,12,54,0,0,0,0,0,0];
-                    console.log(this.response);
+                    const category = [];
+                    const data = [];
+
+                    response.forEach((ele)=>{
+                        category.push(ele.page);
+                        data.push(ele.visit);
+                    })
+
+                    const tot = data.reduce((prec, ele)=> prec+ele);
+
+                    document.getElementById("visite-tot").innerText = ("Visite totali: " + tot)
+
+                    //console.log(this.response);
 
                     const chart = Highcharts.chart('chart', {
                         chart: {
                             type: 'column',
-                            backgroundColor: "#ecfeff"
+                            backgroundColor: "#E4D8B4"
                         },
                         title: {
                             text: 'Visite per pagina'
                         },
                         xAxis: {
-                            categories: ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"]
+                            categories: category
                         },
                         yAxis: {
                             title: {
@@ -189,14 +209,14 @@
                         },
                         series: [{
                             name:"",
-                            data: response,
+                            data: data,
                             showInLegend: false
                         }],
                     });
-                /*}
+                }
             };
             xhttp.open("GET", "visite", true);
-            xhttp.send();*/
+            xhttp.send();
         }
         function getDonazioni() {
             var xhttp = new XMLHttpRequest();
@@ -204,13 +224,10 @@
                 if (this.readyState === 4 && this.status === 200) {
                     var response = JSON.parse(this.response);
 
-                    // let response = [1,20,234,34,12,54,0,0,0,0,0,0];
-                    console.log(this.response);
-
                     const chart = Highcharts.chart('donazioni', {
                         chart: {
                             type: 'column',
-                            backgroundColor: "#ecfeff"
+                            backgroundColor: "#E4D8B4"
                         },
                         title: {
                             text: 'Totale donazioni per mese'
