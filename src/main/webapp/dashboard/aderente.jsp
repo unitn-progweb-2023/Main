@@ -7,24 +7,23 @@
     <link rel="stylesheet" type="text/css" href="../styles/global.css">
     <link rel="stylesheet" type="text/css" href="../styles/aderente.css">
 </head>
-<body>
+<body onload="getAttivitaUtente()">
     <div class="container">
         <%@ include file="navbar.html"%>
         <div class="max-width-small grid">
             <div class="grid-element" >
                 <div class="form-contaienr">
-                    <form class="form" action="./getDati" method="get">
+                    <form class="form" id="datiUtente">
                         <input class="form-button" type="submit" value="Visualizza dati">
-                        <input type="hidden" name="page" value="aderente">
                     </form>
 
                     <div class="info-text">
-                        <p>Nome: ${account.getNome()}</p>
-                        <p>Cognome: ${account.getCognome()}</p>
-                        <p>Email: ${account.getEmail()}</p>
-                        <p>Cellulare: ${account.getCellulare()}</p>
-                        <p>Data di nascita: ${account.getDataDiNascita()}</p>
-                        <p>Username: ${account.getUsername()}</p>
+                        <p id="nome">Nome: </p>
+                        <p id="cognome">Cognome: </p>
+                        <p id="email">Email: </p>
+                        <p id="cellulare">Cellulare: </p>
+                        <p id="dataDiNascita">Data di nascita: </p>
+                        <p id="username">Username: </p>
                     </div>
                 </div>
             </div>
@@ -79,6 +78,25 @@
         <%@ include file="footer.html"%>
     </div>
     <script>
+        document.getElementById("datiUtente").addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    var response = JSON.parse(this.response);
+
+                    document.getElementById("nome").innerText = "Nome: " + response.Nome;
+                    document.getElementById("cognome").innerText = "Cogome: " + response.Cognome;
+                    document.getElementById("email").innerText = "Email: " + response.Email;
+                    document.getElementById("cellulare").innerText = "Cellulare: " + response.Cellulare;
+                    document.getElementById("dataDiNascita").innerText = "Data di nascita: " + response.DataDiNascita;
+                    document.getElementById("username").innerText = "Username: " + response.Username;
+                }
+            };
+            xhttp.open("GET", "getDati?page=aderente&" + (new Date()).getTime(), true);
+            xhttp.send();
+        });
         function getAttivitaUtente() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {

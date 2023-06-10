@@ -13,18 +13,17 @@
         <div class="max-width-small grid">
             <div class="grid-element" >
                 <div class="form-contaienr">
-                    <form class="form" action="getDati" method="get">
+                    <form class="form" id="datiUtente">
                         <input class="form-button" type="submit" value="Visualizza dati">
-                        <input type="hidden" name="page" value="simpatizzante">
                     </form>
 
                     <div class="info-text">
-                        <p id="nome">Nome: ${account.getNome()}</p>
-                        <p id="cognome">Cognome: ${account.getCognome()}</p>
-                        <p id="email">Email: ${account.getEmail()}</p>
-                        <p id="cellulare">Cellulare: ${account.getCellulare()}</p>
-                        <p id="dataDiNascita">Data di nascita: ${account.getDataDiNascita()}</p>
-                        <p id="username">Username: ${account.getUsername()}</p>
+                        <p id="nome">Nome: </p>
+                        <p id="cognome">Cognome: </p>
+                        <p id="email">Email: </p>
+                        <p id="cellulare">Cellulare: </p>
+                        <p id="dataDiNascita">Data di nascita: </p>
+                        <p id="username">Username: </p>
                     </div>
                 </div>
             </div>
@@ -69,6 +68,25 @@
         <%@ include file="footer.html"%>
     </div>
     <script>
+        document.getElementById("datiUtente").addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    var response = JSON.parse(this.response);
+
+                    document.getElementById("nome").innerText = "Nome: " + response.Nome;
+                    document.getElementById("cognome").innerText = "Cogome: " + response.Cognome;
+                    document.getElementById("email").innerText = "Email: " + response.Email;
+                    document.getElementById("cellulare").innerText = "Cellulare: " + response.Cellulare;
+                    document.getElementById("dataDiNascita").innerText = "Data di nascita: " + response.DataDiNascita;
+                    document.getElementById("username").innerText = "Username: " + response.Username;
+                }
+            };
+            xhttp.open("GET", "getDati?page=simpatizzante&" + (new Date()).getTime(), true);
+            xhttp.send();
+        });
         function getAttivitaUtente() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
