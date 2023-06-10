@@ -13,7 +13,7 @@
         <div class="max-width-small grid">
             <div class="grid-element" >
                 <div class="form-contaienr">
-                    <form class="form" action="/dashboard/getDati" method="get">
+                    <form class="form" action="./getDati" method="get">
                         <input class="form-button" type="submit" value="Visualizza dati">
                         <input type="hidden" name="page" value="aderente">
                     </form>
@@ -30,7 +30,7 @@
             </div>
             <div class="span-2 grid-element">
                 <div class="form-contaienr">
-                    <form class="form" action="/dashboard/setAttivita" method="post">
+                    <form class="form" id="formIscrizione">
                         <h1>Iscriviti alle seguenti attività</h1>
 
                         <div class="checkbox">
@@ -55,13 +55,12 @@
                             <h1>Progetti di sviluppo comunitario</h1>
                         </div>
                         <input class="form-button" type="submit" value="Iscriviti">
-                        <input type="hidden" name="page" value="aderente">
                     </form>
                 </div>
             </div>
             <div class="grid-element">
                 <div class="form-contaienr">
-                    <form class="form" action="/dashboard/deleteAccount" method="post">
+                    <form class="form" action="./deleteAccount" method="post">
                         <input class="form-button red" type="submit" value="Disiscrivimi">
                     </form>
                 </div>
@@ -79,5 +78,50 @@
         </div>
         <%@ include file="footer.html"%>
     </div>
+    <script>
+        function getAttivitaUtente() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    var response = JSON.parse(this.response);
+
+                    for(let i = 0; i < response.length; i++){
+                        document.getElementById(response[i]).checked = true;
+                    }
+                }
+            };
+            xhttp.open("GET", "setAttivita", true);
+            xhttp.send();
+        }
+        document.getElementById("formIscrizione").addEventListener("submit", (event) => {
+            event.preventDefault(); // Prevent default form submission behavior
+
+            let attivita = document.getElementsByName("attivita");
+            let aggiungi = [];
+            let rimuovi = [];
+
+            attivita.forEach((att) => {
+                if(att.checked) {
+                    aggiungi.push(att.id);
+                }
+                else
+                    rimuovi.push(att.id);
+            });
+
+            var encodedAggiungi = aggiungi.map(function(att) {
+                return "aggiungi=" + encodeURIComponent(att);
+            }).join("&");
+            var encodedRimuovi = rimuovi.map(function(att) {
+                return "rimuovi=" + encodeURIComponent(att);
+            }).join("&");
+            var encodedData = encodedAggiungi + "&" + encodedRimuovi;
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "setAttivita", true);
+            // xhttp.setRequestHeader("Content-Type", "multipart/form-data");
+            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhttp.send(encodedData);
+        });
+    </script>
 </body>
 </html>
