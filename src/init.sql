@@ -18,3 +18,4 @@ INSERT INTO VISITE VALUES ('Registrazione Confermata', 0);
 INSERT INTO VISITE VALUES ('Invio Confermato', 0);
 INSERT INTO VISITE VALUES ('Simpatizzante', 0);
 INSERT INTO VISITE VALUES ('Aderente', 0);
+CREATE TABLE ATTIVITA (Attivita VARCHAR(50), Account VARCHAR(50), PRIMARY KEY(Attivita, Account), FOREIGN KEY(Account) REFERENCES ACCOUNT(Username));

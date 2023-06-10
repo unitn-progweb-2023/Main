@@ -27,8 +27,6 @@
 
         <% if(request.getAttribute("error") != null){ %>
         <script>
-            console.log("ciao");
-            console.log("<%= (String) request.getAttribute("error") %>");
             notify("<%= (String) request.getAttribute("error") %>");
         </script>
         <% } %>
