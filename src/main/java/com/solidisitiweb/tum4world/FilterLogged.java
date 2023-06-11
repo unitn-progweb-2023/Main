@@ -39,7 +39,7 @@ public class FilterLogged implements Filter {
         }
         else {
             HttpServletResponse hres = (HttpServletResponse) servletResponse;
-            hres.sendRedirect("../login.jsp");
+            hres.sendRedirect(hres.encodeURL("../login.jsp"));
             return;
         }
 
@@ -56,11 +56,11 @@ public class FilterLogged implements Filter {
                     }
                     else {
                         HttpServletResponse hres = (HttpServletResponse) servletResponse;
-                        hres.sendRedirect("../login.jsp");
+                        hres.sendRedirect(hres.encodeURL("../login.jsp"));
                     }
                 } else {
                     HttpServletResponse hres = (HttpServletResponse) servletResponse;
-                    hres.sendRedirect("../login.jsp");
+                    hres.sendRedirect(hres.encodeURL("../login.jsp"));
                 }
                 results.close();
                 pstmt.close();
@@ -70,7 +70,7 @@ public class FilterLogged implements Filter {
         }
         else {
             HttpServletResponse hres = (HttpServletResponse) servletResponse;
-            hres.sendRedirect("../login.jsp");
+            hres.sendRedirect(hres.encodeURL("../login.jsp"));
         }
     }
 

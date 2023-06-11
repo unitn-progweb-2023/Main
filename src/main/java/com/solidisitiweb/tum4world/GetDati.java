@@ -72,10 +72,8 @@ public class GetDati extends HttpServlet {
             results.close();
             stmt.close();
 
-        } catch (SQLException | NullPointerException e) {
+        } catch (SQLException | NullPointerException | ParseException e) {
             System.err.println(e);
-        } catch (ParseException e) {
-            throw new IllegalArgumentException(e.getMessage(), e);
         }
 
         try (PrintWriter out = response.getWriter()) {

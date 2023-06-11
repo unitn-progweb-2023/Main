@@ -67,7 +67,7 @@
             <div class="grid-element column-span-2">
                 <div class="form-contaienr dona">
                     <h1>Effettua una donazione a Tum4World</h1>
-                    <form class="form dona" action="<%=response.encodeURL("./donazioni")%>" method="post">
+                    <form class="form dona" id="donazione">
                         <label class="obbligatorio" for="dona" >Importo in €</label>
                         <input id="dona" type="number" min="0" name="importo">
                         <input type="submit" value="Dona">
@@ -138,6 +138,24 @@
             xhttp.open("POST", "<%=response.encodeURL("setAttivita")%>", true);
             xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhttp.send(encodedData);
+        });
+        document.getElementById("donazione").addEventListener("submit", () => {
+            event.preventDefault(); // Prevent default form submission behavior
+
+            let donazione = document.getElementById("dona").value;
+            if(donazione.length > 0 && /^[0-9]+$/.test(donazione)){
+                let encodedImport = "importo=" + encodeURIComponent(donazione);
+
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState === 4 && this.status === 200) {
+                        document.getElementById("donazione").reset();
+                    }
+                };
+                xhttp.open("POST", "<%=response.encodeURL("./donazioni")%>", true);
+                xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhttp.send(encodedImport);
+            }
         });
     </script>
 </body>

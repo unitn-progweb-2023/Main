@@ -17,12 +17,12 @@
 
     const setCookie = () => {
         var xhttp = new XMLHttpRequest();
-        xhttp.open("POST", "cookie", true);
         xhttp.onreadystatechange = function() {
             if (this.readyState === 4 && this.status === 200) {
                 document.getElementById("cookie").remove();
             }
         };
+        xhttp.open("POST", "<%=response.encodeURL("cookie")%>", true);
         xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhttp.send();
     }

@@ -1,6 +1,5 @@
 package com.solidisitiweb.tum4world;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -39,12 +38,8 @@ public class Donazioni extends HttpServlet {
 
             pstmt.executeUpdate();
             pstmt.close();
-            request.getRequestDispatcher("./aderente.jsp").forward(request, response);
         } catch (SQLException | NullPointerException e) {
             System.err.println(e);
-            response.sendRedirect(response.encodeURL("/error.html"));
-        } catch (ServletException e) {
-            throw new RuntimeException(e);
         }
     }
 

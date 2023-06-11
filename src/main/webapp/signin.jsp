@@ -89,11 +89,11 @@
     <script>
         function valida_nome(){
             let nome = document.getElementById("nome").value;
-            return nome.length > 0 && /^(?!.*'')(?!.*\s\s)(?!.*'(\s*\w*)')[a-zA-Z]+[a-zA-Z'\s]*[a-zA-Z]+$/.test(nome);
+            return nome.length > 0 && /^(?!.*'')(?!.*\s\s)(?!.*'(\s*\w*)')[a-zA-Z]+([a-zA-Z'\s]*[a-zA-Z]+)*$/.test(nome);
         }
         function valida_cognome(){
             let cognome = document.getElementById("cognome").value;
-            return cognome.length > 0 && /^(?!.*'')(?!.*\s\s)(?!.*'(\s*\w*)')[a-zA-Z]+[a-zA-Z'\s]*[a-zA-Z]+$/.test(cognome);
+            return cognome.length > 0 && /^(?!.*'')(?!.*\s\s)(?!.*'(\s*\w*)')[a-zA-Z]+([a-zA-Z'\s]*[a-zA-Z]+)*$/.test(cognome);
         }
         function valida_eta(){
             let ora = new Date();
