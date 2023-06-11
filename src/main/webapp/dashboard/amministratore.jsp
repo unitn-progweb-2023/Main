@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <%@ include file="navbar.html"%>
+        <%@ include file="navbar.jsp"%>
         <div class="max-width-small page-container">
             <div class="menu">
                 <button onclick="select(event,getUtenti,'registrati')">Utenti registrati</button>

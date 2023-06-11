@@ -9,7 +9,7 @@
 </head>
 <body onload="getAttivitaUtente()">
     <div class="container">
-        <%@ include file="navbar.html"%>
+        <%@ include file="navbar.jsp"%>
         <div class="max-width-small grid">
             <div class="grid-element" >
                 <div class="form-contaienr">

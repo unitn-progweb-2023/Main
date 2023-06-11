@@ -51,9 +51,7 @@ public class RegistraUtente extends HttpServlet {
                 results.close();
                 stmt.close();
                 // crea utente con dati inseriti e inseriscilo nel database
-                System.out.println(dataNascita);
                 try {
-                    // executeUpdate piange con le date
                     // ? è un placeholder di un valore che verrà specificato in seguito
                     PreparedStatement pstmt = conn.prepareStatement("INSERT INTO ACCOUNT" +
                             "(Username, DataDiNascita, Nome, Cognome, Email, Cellulare, Password, Type)" +

@@ -47,12 +47,13 @@ public class SendEmail extends HttpServlet {
             msg.setSubject(motivo);
             msg.setText("Ciao, sono " + nome + " " + cognome + ".\n" +
                     "Scrivo per: " + motivo + ". \n " + ulterioriInfo);
-            Transport.send(msg);
+            //Transport.send(msg);
 
             System.out.println("Email inviata con successo");
             response.sendRedirect("invioconfermato.jsp");
         } catch (MessagingException mex) {
-            System.out.println("send failed, exception: " + mex);
+            System.err.println("send failed, exception: " + mex);
+            response.sendRedirect("error.html");
         }
 
     }

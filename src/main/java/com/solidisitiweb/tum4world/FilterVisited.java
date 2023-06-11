@@ -15,7 +15,6 @@ public class FilterVisited implements Filter{
     String user = "App";
     String password = "pw";
     Connection conn = null;
-    Gson gson;
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -25,7 +24,6 @@ public class FilterVisited implements Filter{
         } catch (ClassNotFoundException | SQLException | NullPointerException e) {
             System.out.println(e);
         }
-        gson = new Gson();
     }
 
     @Override
@@ -37,7 +35,7 @@ public class FilterVisited implements Filter{
         int numVisite = -1;
 
         String urlPagina = String.valueOf(hreq.getRequestURL());
-        if(urlPagina.endsWith("/")) {
+        if(urlPagina.endsWith("/") || urlPagina.endsWith("/home.jsp")) {
             pagina = "Homepage";
         }else if(urlPagina.endsWith("/attivita.jsp")){
             pagina = "Attivita";
