@@ -43,6 +43,7 @@
             </div>
         </div>
         <%@ include file="footer.html"%>
+        <%@ include file="cookie.jsp"%>
     </div>
     <script>
         const x = document.getElementById("chisiamo");

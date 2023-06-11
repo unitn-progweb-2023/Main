@@ -76,6 +76,7 @@
             </div>
         </form>
         <%@ include file="footer.html"%>
+        <%@ include file="cookie.jsp"%>
         <%@ include file="notify-box.html"%>
 
         <% if(request.getAttribute("error") != null){ %>

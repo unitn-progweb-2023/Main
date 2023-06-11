@@ -1,3 +1,7 @@
+<%
+    Boolean cookieValue = (Boolean) session.getAttribute("cookie");
+%>
+
 <div id="cookie" class="cookie-container">
     <span class="bold">Cookie</span>
     <span>Il presente sito web utilizza cookie tecnici per garantire il corretto funzionamento della procedure e migliorare l'esperienza di uso delle applicazioni online.</span>
@@ -5,6 +9,12 @@
 </div>
 
 <script>
+    let cookieValue = <%= cookieValue %>;
+
+    if(cookieValue){
+        document.getElementById("cookie").remove();
+    }
+
     const setCookie = () => {
         var xhttp = new XMLHttpRequest();
         xhttp.open("POST", "cookie", true);

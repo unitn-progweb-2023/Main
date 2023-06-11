@@ -13,6 +13,7 @@
     </p>
   </div>
   <%@ include file="footer.html"%>
+  <%@ include file="cookie.jsp"%>
 </div>
 </body>
 </html>
