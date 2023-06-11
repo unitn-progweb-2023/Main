@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Tum4World</title>
-    <link rel="icon" href="../img/favicon.ico">
+    <link rel="icon" href="../webapp_resources/img/favicon.ico">
     <link rel="stylesheet" type="text/css" href="../styles/global.css">
     <link rel="stylesheet" type="text/css" href="../styles/aderente.css">
 </head>
@@ -34,21 +34,21 @@
 
                         <div class="checkbox">
                             <label for="at1">
-                                <img src="../img/chisiamo_1.jpg">
+                                <img src="../webapp_resources/img/chisiamo_1.jpg">
                             </label>
                             <input type="checkbox" id="at1" name="attivita" value="at1">
                             <h1>Fornitura di cure mediche</h1>
                         </div>
                         <div class="checkbox">
                             <label for="at2">
-                                <img src="../img/chisiamo_2.jpg">
+                                <img src="../webapp_resources/img/chisiamo_2.jpg">
                             </label>
                             <input type="checkbox" id="at2" name="attivita" value="at2">
                             <h1>Programmi di educazione sanitaria</h1>
                         </div>
                         <div class="checkbox">
                             <label for="at3">
-                                <img src="../img/chisiamo_3.jpg">
+                                <img src="../webapp_resources/img/chisiamo_3.jpg">
                             </label>
                             <input type="checkbox" id="at3" name="attivita" value="at3">
                             <h1>Progetti di sviluppo comunitario</h1>

@@ -6,7 +6,7 @@
     <div class="container">
         <%@ include file="navbar.jsp"%>
         <div class="image-container">
-            <img src="img/logo-trasparent.png">
+            <img src="webapp_resources/img/logo-trasparent.png">
         </div>
 
         <div class="hp-title-container">
@@ -14,7 +14,7 @@
         </div>
 
         <div class="hp-text-container max-width-small">
-            <img class="in-text-image" src="img/homepage_1.jpg">
+            <img class="in-text-image" src="webapp_resources/img/homepage_1.jpg">
             <h2 class="hp-p-title">Un po' su di noi </h2>
             <p class="hp-text">La nostra associazone <i>no-profit</i> si prepone l'obbiettivo di aiutare tutte le persone che vivono nei paesi del terzo mondo. Mediante il supporto ricevuto dai suoi volontari e donatori Tum4World ha realizzato interventi sanitari aiutando comunità svantaggiate in giro nel mondo.</p>
             <a class="hp-dowload" href="webapp_resources/VolantinoA5.pdf" download="volantino">Scarica Volantino</a>
