@@ -21,6 +21,7 @@
         </div>
 
         <%@ include file="footer.html"%>
+        <%@ include file="cookie.html"%>
     </div>
     <script>
         const x = document.getElementById("homepage");
