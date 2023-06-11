@@ -22,14 +22,8 @@ public class SendEmail extends HttpServlet {
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.Tum4World.com");
         props.put("mail.smtp.port", "587");
-        //props.put("mail.smtp.auth", "true");
-        //props.put("mail.smtp.starttls.enable", "true");
+
         sessioneSMTP = Session.getInstance(props, null);
-        /* Session session = Session.getInstance(props, new Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("usr", "psw");
-            }
-        });*/
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
