@@ -6,7 +6,7 @@
         <%@ include file="navbar.jsp"%>
         <h1 class="page-title">Registrazione</h1>
 
-        <form class="max-width-x-small form" action="./registraUtente" onsubmit="return valida_form()" method="POST">
+        <form class="max-width-x-small form" action="<%=response.encodeURL("./registraUtente")%>" onsubmit="return valida_form()" method="POST">
             <div class="form-row">
                 <div class="form-ele-wrapper">
                     <label class="obbligatorio" for="nome">Nome</label>

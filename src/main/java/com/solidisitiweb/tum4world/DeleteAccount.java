@@ -31,10 +31,10 @@ public class DeleteAccount extends HttpServlet {
             stmt.close();
             request.getSession().removeAttribute("username");
             request.getSession().removeAttribute("tipoUtente");
-            response.sendRedirect("../cancellazioneconfermata.jsp");
+            response.sendRedirect(response.encodeURL("../cancellazioneconfermata.jsp"));
         } catch (SQLException | NullPointerException e) {
             System.err.println(e);
-            response.sendRedirect("../error.html");
+            response.sendRedirect(response.encodeURL("../error.html"));
         }
     }
 

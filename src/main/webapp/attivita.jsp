@@ -7,7 +7,7 @@
         <h1 class="page-title">Attività</h1>
         <div class="max-width-medium at-container">
             <div class="at-box">
-                <a href="paginaattivita_1.jsp">
+                <a href="<%=response.encodeURL("paginaattivita_1.jsp")%>">
                     <img src="img/chisiamo_1.jpg" alt="attivita_1" width="150px">
                 </a>
                 <h3 class="at-p-title">Fornitura di cure mediche<br/><br/></h3>
@@ -18,7 +18,7 @@
                 </p>
             </div>
             <div class="at-box">
-                <a href="paginaattivita_2.jsp">
+                <a href="<%=response.encodeURL("paginaattivita_2.jsp")%>">
                     <img src="img/chisiamo_2.jpg" alt="attivita_2" width="150px">
                 </a>
                 <h3 class="at-p-title">Programmi di educazione sanitaria</h3>
@@ -30,7 +30,7 @@
                 </p>
             </div>
             <div class="at-box">
-                <a href="paginaattivita_3.jsp">
+                <a href="<%=response.encodeURL("paginaattivita_3.jsp")%>">
                     <img src="img/chisiamo_3.jpg" alt="attivita_3" width="150px">
                 </a>
                 <h3 class="at-p-title">Progetti di sviluppo comunitario</h3>

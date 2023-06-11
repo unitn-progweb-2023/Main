@@ -26,8 +26,6 @@ public class DeleteVisit extends HttpServlet{
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        // response.setContentType("text/html");
-        // response.setCharacterEncoding("utf-8");
 
         try {
             Statement stmt = conn.createStatement();
@@ -37,7 +35,7 @@ public class DeleteVisit extends HttpServlet{
             stmt.close();
         } catch (SQLException | NullPointerException e) {
             System.err.println(e);
-            response.sendRedirect("/error.html");
+            response.sendRedirect(response.encodeURL("/error.html"));
         }
     }
 

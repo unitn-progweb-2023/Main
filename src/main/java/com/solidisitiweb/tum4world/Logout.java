@@ -14,6 +14,6 @@ public class Logout extends HttpServlet {
         // TODO: encodeURL()
         req.getSession().removeAttribute("username");
         req.getSession().removeAttribute("tipoUtente");
-        resp.sendRedirect("../home.jsp");
+        resp.sendRedirect(resp.encodeURL("../home.jsp"));
     }
 }

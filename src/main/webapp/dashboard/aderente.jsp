@@ -59,7 +59,7 @@
             </div>
             <div class="grid-element">
                 <div class="form-contaienr">
-                    <form class="form" action="./deleteAccount" method="post">
+                    <form class="form" action="<%=response.encodeURL("./deleteAccount")%>" method="post">
                         <input class="form-button red" type="submit" value="Disiscrivimi">
                     </form>
                 </div>
@@ -67,7 +67,7 @@
             <div class="grid-element column-span-2">
                 <div class="form-contaienr dona">
                     <h1>Effettua una donazione a Tum4World</h1>
-                    <form class="form dona" action="./donazioni" method="post">
+                    <form class="form dona" action="<%=response.encodeURL("./donazioni")%>" method="post">
                         <label class="obbligatorio" for="dona" >Importo in €</label>
                         <input id="dona" type="number" min="0" name="importo">
                         <input type="submit" value="Dona">
@@ -94,7 +94,7 @@
                     document.getElementById("username").innerText = "Username: " + response.Username;
                 }
             };
-            xhttp.open("GET", "getDati?page=aderente&" + (new Date()).getTime(), true);
+            xhttp.open("GET","<%=response.encodeURL("getDati?page=aderente")%>", true);
             xhttp.send();
         });
         function getAttivitaUtente() {
@@ -108,7 +108,7 @@
                     }
                 }
             };
-            xhttp.open("GET", "setAttivita", true);
+            xhttp.open("GET", "<%=response.encodeURL("setAttivita")%>", true);
             xhttp.send();
         }
         document.getElementById("formIscrizione").addEventListener("submit", (event) => {
@@ -135,8 +135,7 @@
             var encodedData = encodedAggiungi + "&" + encodedRimuovi;
 
             var xhttp = new XMLHttpRequest();
-            xhttp.open("POST", "setAttivita", true);
-            // xhttp.setRequestHeader("Content-Type", "multipart/form-data");
+            xhttp.open("POST", "<%=response.encodeURL("setAttivita")%>", true);
             xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhttp.send(encodedData);
         });

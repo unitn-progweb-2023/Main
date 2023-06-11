@@ -27,7 +27,7 @@ public class FilterLogged implements Filter {
         HttpServletRequest hreq = (HttpServletRequest) servletRequest;
         String username = (String) hreq.getSession().getAttribute("username");
         String type;
-        String urlPagina = String.valueOf(hreq.getRequestURL());
+        String urlPagina = String.valueOf(hreq.getRequestURL()).split(";")[0];
         if(urlPagina.endsWith("/simpatizzante.jsp")){
             type = "SI";
         }

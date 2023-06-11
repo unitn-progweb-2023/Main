@@ -72,16 +72,16 @@ public class RegistraUtente extends HttpServlet {
                     session.setAttribute("tipoUtente", tipoUtente);
                     session.setAttribute("username", username);
 
-                    response.sendRedirect("registrazioneconfermata.jsp");
+                    response.sendRedirect(response.encodeURL("registrazioneconfermata.jsp"));
                 }
                 catch (SQLException | NullPointerException e) {
                     System.err.println(e);
-                    response.sendRedirect("error.html");
+                    response.sendRedirect(response.encodeURL("error.html"));
                 }
             }
         } catch (SQLException | NullPointerException e) {
             System.err.println(e);
-            response.sendRedirect("error.html");
+            response.sendRedirect(response.encodeURL("error.html"));
         }
     }
 
