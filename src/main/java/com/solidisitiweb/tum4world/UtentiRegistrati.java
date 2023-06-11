@@ -67,7 +67,7 @@ public class UtentiRegistrati extends HttpServlet {
 
         } catch (SQLException | NullPointerException e) {
             System.err.println(e);
-            response.sendRedirect("error.html");
+            response.sendRedirect(response.encodeURL("/error.html"));
         }
 
         try (PrintWriter out = response.getWriter()) {
@@ -77,7 +77,7 @@ public class UtentiRegistrati extends HttpServlet {
         }
         catch (IOException e) {
             System.err.println(e);
-            response.sendRedirect("error.html");
+            response.sendRedirect(response.encodeURL("/error.html"));
         }
     }
 

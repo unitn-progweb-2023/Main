@@ -51,13 +51,13 @@ public class LoginUtente extends HttpServlet {
                         session.setAttribute("username", username);
 
                         if(tipoUtente.equals("AD")){
-                            response.sendRedirect("dashboard/aderente.jsp");
+                            response.sendRedirect(response.encodeURL("dashboard/aderente.jsp"));
                         }
                         else if(tipoUtente.equals(("SI"))){
-                            response.sendRedirect("dashboard/simpatizzante.jsp");
+                            response.sendRedirect(response.encodeURL("dashboard/simpatizzante.jsp"));
                         }
                         else if(tipoUtente.equals("AM")){
-                            response.sendRedirect("dashboard/amministratore.jsp");
+                            response.sendRedirect(response.encodeURL("dashboard/amministratore.jsp"));
                         }
                         else{
                             request.setAttribute("error", "05: tipologia utente non valida");
@@ -77,7 +77,7 @@ public class LoginUtente extends HttpServlet {
                 }
             } catch (SQLException | NullPointerException e) {
                 System.err.println(e);
-                response.sendRedirect("error.html");
+                response.sendRedirect(response.encodeURL("error.html"));
             }
         }
         else {

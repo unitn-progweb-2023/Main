@@ -59,7 +59,7 @@
             </div>
             <div class="grid-element">
                 <div class="form-contaienr">
-                    <form class="form" action="./deleteAccount" method="post">
+                    <form class="form" action="<%=response.encodeURL("./deleteAccount")%>" method="post">
                         <input class="form-button red" type="submit" value="Disiscrivimi">
                     </form>
                 </div>
@@ -84,7 +84,7 @@
                     document.getElementById("username").innerText = "Username: " + response.Username;
                 }
             };
-            xhttp.open("GET", "getDati?page=simpatizzante&" + (new Date()).getTime(), true);
+            xhttp.open("GET", "<%=response.encodeURL("getDati?page=simpatizzante")%>", true);
             xhttp.send();
         });
         function getAttivitaUtente() {
@@ -98,7 +98,7 @@
                     }
                 }
             };
-            xhttp.open("GET", "setAttivita", true);
+            xhttp.open("GET", "<%=response.encodeURL("setAttivita")%>", true);
             xhttp.send();
         }
         document.getElementById("formIscrizione").addEventListener("submit", (event) => {
@@ -125,7 +125,7 @@
             var encodedData = encodedAggiungi + "&" + encodedRimuovi;
 
             var xhttp = new XMLHttpRequest();
-            xhttp.open("POST", "setAttivita", true);
+            xhttp.open("POST", "<%=response.encodeURL("setAttivita")%>", true);
             // xhttp.setRequestHeader("Content-Type", "multipart/form-data");
             xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhttp.send(encodedData);

@@ -28,8 +28,6 @@ public class Donazioni extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        // response.setContentType("text/html");
-        // response.setCharacterEncoding("utf-8");
 
         try {
             HttpSession session = request.getSession();
@@ -44,7 +42,7 @@ public class Donazioni extends HttpServlet {
             request.getRequestDispatcher("./aderente.jsp").forward(request, response);
         } catch (SQLException | NullPointerException e) {
             System.err.println(e);
-            response.sendRedirect("/error.html");
+            response.sendRedirect(response.encodeURL("/error.html"));
         } catch (ServletException e) {
             throw new RuntimeException(e);
         }

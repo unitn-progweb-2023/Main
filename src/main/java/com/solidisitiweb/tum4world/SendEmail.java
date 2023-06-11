@@ -44,10 +44,10 @@ public class SendEmail extends HttpServlet {
             //Transport.send(msg);
 
             System.out.println("Email inviata con successo");
-            response.sendRedirect("invioconfermato.jsp");
+            response.sendRedirect(response.encodeURL("invioconfermato.jsp"));
         } catch (MessagingException mex) {
             System.err.println("send failed, exception: " + mex);
-            response.sendRedirect("error.html");
+            response.sendRedirect(response.encodeURL("error.html"));
         }
 
     }

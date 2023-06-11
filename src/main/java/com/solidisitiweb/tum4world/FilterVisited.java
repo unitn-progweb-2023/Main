@@ -30,11 +30,12 @@ public class FilterVisited implements Filter{
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest hreq = (HttpServletRequest) servletRequest;
 
-        System.out.println("Pagina visitata: " +  hreq.getRequestURL());
         String pagina = "";
         int numVisite = -1;
 
         String urlPagina = String.valueOf(hreq.getRequestURL());
+        urlPagina = urlPagina.split(";")[0];
+        System.out.println("Pagina visitata: " +  urlPagina);
         if(urlPagina.endsWith("/") || urlPagina.endsWith("/home.jsp")) {
             pagina = "Homepage";
         }else if(urlPagina.endsWith("/attivita.jsp")){

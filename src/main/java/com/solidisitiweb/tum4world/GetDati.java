@@ -50,6 +50,7 @@ public class GetDati extends HttpServlet {
 
         HttpSession session = request.getSession();
         if(session.getAttribute("username") == null){
+            System.err.println(request.getRequestURL());
             return;
         }
 
