@@ -4,7 +4,7 @@
 <body>
     <div class="container-attivita">
         <%@ include file="navbar.jsp"%>
-        <img class="img-bg" src="img/chisiamo_1.jpg" width="150px" alt="img fornitura">
+        <img class="img-bg" src="webapp_resources/img/chisiamo_1.jpg" width="150px" alt="img fornitura">
         <div class="bcg-trasparent"></div>
         <div class="max-width-small ac-container">
             <h1 class="page-title">Fornitura di cure mediche</h1>

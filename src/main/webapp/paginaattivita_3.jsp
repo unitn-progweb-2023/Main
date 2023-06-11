@@ -4,7 +4,7 @@
 <body>
     <div class="container-attivita">
         <%@ include file="navbar.jsp"%>
-        <img class="img-bg" src="img/chisiamo_3.jpg" width="150px" alt="immagine sviluppo">
+        <img class="img-bg" src="webapp_resources/img/chisiamo_3.jpg" width="150px" alt="immagine sviluppo">
         <div class="bcg-trasparent"></div><div class="bcg-trasparent"></div><div class="max-width-small ac-container">
             <h1 class="page-title">Progetti di sviluppo comunitario</h1>
             <p class="ac-text">

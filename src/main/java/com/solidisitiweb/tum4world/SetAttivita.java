@@ -72,32 +72,37 @@ public class SetAttivita extends HttpServlet {
         try {
             ResultSet rs;
             PreparedStatement pstmt = conn.prepareStatement("INSERT INTO ATTIVITA " +
-                                                            "VALUES(?, '" + session.getAttribute("username") + "')");
+                    "VALUES(?, '" + session.getAttribute("username") + "')");
             PreparedStatement prePstmt = conn.prepareStatement("SELECT * FROM ATTIVITA " +
-                                                            "WHERE Account='" + session.getAttribute("username") +
-                                                            "' AND Attivita=?");
-            for (String s : aggiungi) {
-                // verifica se l'attività è già presente
-                // se no -> aggiungila
-                prePstmt.setString(1, s);
-                rs = prePstmt.executeQuery();
-                if (!rs.next()) {
-                    pstmt.setString(1, s);
-                    pstmt.executeUpdate();
+                    "WHERE Account='" + session.getAttribute("username") +
+                    "' AND Attivita=?");
+
+            if(aggiungi != null){
+                for (String s : aggiungi) {
+                    // verifica se l'attività è già presente
+                    // se no -> aggiungila
+                    prePstmt.setString(1, s);
+                    rs = prePstmt.executeQuery();
+                    if (!rs.next()) {
+                        pstmt.setString(1, s);
+                        pstmt.executeUpdate();
+                    }
                 }
             }
 
             pstmt = conn.prepareStatement("DELETE FROM ATTIVITA " +
                                             "WHERE account='" + session.getAttribute("username") +
                                             "' AND attivita=?");
-            for (String s : rimuovi) {
-                // verifica se l'attività è già presente
-                // se si -> rimuovila
-                prePstmt.setString(1, s);
-                rs = prePstmt.executeQuery();
-                if (rs.next()) {
-                    pstmt.setString(1, s);
-                    pstmt.executeUpdate();
+            if(rimuovi != null){
+                for (String s : rimuovi) {
+                    // verifica se l'attività è già presente
+                    // se si -> rimuovila
+                    prePstmt.setString(1, s);
+                    rs = prePstmt.executeQuery();
+                    if (rs.next()) {
+                        pstmt.setString(1, s);
+                        pstmt.executeUpdate();
+                    }
                 }
             }
             prePstmt.close();

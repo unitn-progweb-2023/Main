@@ -17,11 +17,11 @@
                     Tum4World lavora incessantemente per garantire l'accesso alle cure mediche di
                     base, la fornitura di medicinali essenziali e la promozione dell'igiene e della prevenzione delle malattie.
                 </p>
-                <img class="float-right" src="img/chisiamo_3.jpg" width="400px" alt="chi siamo">
+                <img class="float-right" src="webapp_resources/img/chisiamo_3.jpg" width="400px" alt="chi siamo">
             </div>
             <h3 class="cs-p-title">La nostra storia</h3>
             <div class="cs-box">
-                <img src="img/chisiamo_4.jpg" width="400px" alt="chi siamo">
+                <img src="webapp_resources/img/chisiamo_4.jpg" width="400px" alt="chi siamo">
                 <p class="cs-text">
                     Durante una vacanza nel 2025, <em>Pino e Pina</em> rimasero profondamente colpiti dalle condizioni di
                     vita difficili dei paesi del terzo mondo. Decisero di fare la differenza e fondarono l'associazione
@@ -38,8 +38,8 @@
             <div class="cs-box">
                 <p class="cs-text">Ad oggi siamo più di <strong>800 volontari!</strong><br/><br/>Abbiamo già curato più di <strong>10 000 persone</strong> e ci hanno riconosciuto come
                     <strong>Best Association of the World 2027!</strong></p>
-                <img src="img/chisiamo_1.jpg" height="300px" alt="chi siamo">
-                <img src="img/chisiamo_2.jpg" height="300px" alt="chi siamo">
+                <img src="webapp_resources/img/chisiamo_1.jpg" height="300px" alt="chi siamo">
+                <img src="webapp_resources/img/chisiamo_2.jpg" height="300px" alt="chi siamo">
             </div>
         </div>
         <%@ include file="footer.html"%>

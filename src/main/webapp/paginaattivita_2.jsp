@@ -4,7 +4,7 @@
 <body>
     <div class="container-attivita">
         <%@ include file="navbar.jsp"%>
-        <img class="img-bg" src="img/chisiamo_2.jpg" width="150px" alt="immagine educazione">
+        <img class="img-bg" src="webapp_resources/img/chisiamo_2.jpg" width="150px" alt="immagine educazione">
         <div class="bcg-trasparent"></div><div class="max-width-small ac-container">
             <h1 class="page-title">Programmi di educazione sanitaria</h1>
             <p class="ac-text">

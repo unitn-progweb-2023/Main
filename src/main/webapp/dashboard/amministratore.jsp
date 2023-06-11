@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Tum4World</title>
-    <link rel="icon" href="../img/favicon.ico">
+    <link rel="icon" href="../webapp_resources/img/favicon.ico">
     <link rel="stylesheet" type="text/css" href="../styles/global.css">
     <link rel="stylesheet" type="text/css" href="../styles/amministratore.css">
 </head>

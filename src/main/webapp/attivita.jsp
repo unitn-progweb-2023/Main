@@ -8,7 +8,7 @@
         <div class="max-width-medium at-container">
             <div class="at-box">
                 <a href="<%=response.encodeURL("paginaattivita_1.jsp")%>">
-                    <img src="img/chisiamo_1.jpg" alt="attivita_1" width="150px">
+                    <img src="webapp_resources/img/chisiamo_1.jpg" alt="attivita_1" width="150px">
                 </a>
                 <h3 class="at-p-title">Fornitura di cure mediche<br/><br/></h3>
                 <p class="cs-text">Tum4World organizza missioni mediche in cui i volontari, tra cui medici, infermieri e
@@ -19,7 +19,7 @@
             </div>
             <div class="at-box">
                 <a href="<%=response.encodeURL("paginaattivita_2.jsp")%>">
-                    <img src="img/chisiamo_2.jpg" alt="attivita_2" width="150px">
+                    <img src="webapp_resources/img/chisiamo_2.jpg" alt="attivita_2" width="150px">
                 </a>
                 <h3 class="at-p-title">Programmi di educazione sanitaria</h3>
                 <p class="cs-text">L'associazione realizza programmi di sensibilizzazione e formazione sulla salute e l'igiene
@@ -31,7 +31,7 @@
             </div>
             <div class="at-box">
                 <a href="<%=response.encodeURL("paginaattivita_3.jsp")%>">
-                    <img src="img/chisiamo_3.jpg" alt="attivita_3" width="150px">
+                    <img src="webapp_resources/img/chisiamo_3.jpg" alt="attivita_3" width="150px">
                 </a>
                 <h3 class="at-p-title">Progetti di sviluppo comunitario</h3>
                 <p class="cs-text"> Tum4World collabora con le comunità locali per implementare progetti di sviluppo sostenibile.
