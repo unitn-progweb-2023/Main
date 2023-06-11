@@ -36,8 +36,6 @@ public class GetDati extends HttpServlet {
 
         Account a;
         if(request.getParameter("page") == null){
-            // TODO: gestire caso nessuna pagina passata
-            response.sendRedirect("/error.html");
             return;
         }
         else if(request.getParameter("page").equals("aderente")){
@@ -47,15 +45,11 @@ public class GetDati extends HttpServlet {
             a = new Simpatizzante();
         }
         else {
-            // TODO: gestire casi in cui arrivino cose strane
-            response.sendRedirect("/error.html");
             return;
         }
 
         HttpSession session = request.getSession();
         if(session.getAttribute("username") == null){
-            // TODO: gestire casi in cui arrivino cose strane
-            response.sendRedirect("/error.html");
             return;
         }
 
@@ -79,7 +73,6 @@ public class GetDati extends HttpServlet {
 
         } catch (SQLException | NullPointerException e) {
             System.err.println(e);
-            response.sendRedirect("error.html");
         } catch (ParseException e) {
             throw new IllegalArgumentException(e.getMessage(), e);
         }
@@ -91,7 +84,6 @@ public class GetDati extends HttpServlet {
         }
         catch (IOException e) {
             System.err.println(e);
-            response.sendRedirect("error.html");
         }
     }
 

@@ -33,7 +33,6 @@ public class SetAttivita extends HttpServlet {
 
         HttpSession session = request.getSession();
         if(session.getAttribute("username") == null){
-            response.sendRedirect("/error.html");
             return;
         }
         try {
@@ -48,7 +47,6 @@ public class SetAttivita extends HttpServlet {
 
         } catch (SQLException | NullPointerException e) {
             System.err.println(e);
-            response.sendRedirect("error.html");
         }
 
         try (PrintWriter out = response.getWriter()) {
@@ -58,7 +56,6 @@ public class SetAttivita extends HttpServlet {
         }
         catch (IOException e) {
             System.err.println(e);
-            response.sendRedirect("error.html");
         }
     }
 
@@ -70,7 +67,6 @@ public class SetAttivita extends HttpServlet {
         // aggiungi attività al database
         HttpSession session = request.getSession();
         if(session.getAttribute("username") == null){
-            response.sendRedirect("/error.html");
             return;
         }
         try {
@@ -108,7 +104,6 @@ public class SetAttivita extends HttpServlet {
             pstmt.close();
         } catch (SQLException | NullPointerException e) {
             System.err.println(e);
-            response.sendRedirect("error.html");
         }
     }
 
