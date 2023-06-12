@@ -22,7 +22,7 @@
                 document.getElementById("cookie").remove();
             }
         };
-        xhttp.open("POST", "<%=response.encodeURL("/cookie")%>", true);
+        xhttp.open("POST", "<%=response.encodeURL("cookie")%>", true);
         xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhttp.send();
     }
