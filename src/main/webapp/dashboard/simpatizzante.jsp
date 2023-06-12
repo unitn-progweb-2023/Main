@@ -65,6 +65,7 @@
                 </div>
             </div>
         </div>
+        <%@ include file="../cookie.jsp"%>
         <%@ include file="footer.html"%>
     </div>
     <script>
