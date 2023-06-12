@@ -29,7 +29,6 @@ public class DeleteVisit extends HttpServlet{
             Statement stmt = conn.createStatement();
             String sql = "UPDATE VISITE SET NumVisite = 0";
             stmt.executeUpdate(sql);
-            System.out.println("try to delete");
             stmt.close();
         } catch (SQLException | NullPointerException e) {
             System.err.println(e);

@@ -1,11 +1,7 @@
 package com.solidisitiweb.tum4world;
 
-import com.google.gson.Gson;
-
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.*;
 
@@ -35,7 +31,6 @@ public class FilterVisited implements Filter{
 
         String urlPagina = String.valueOf(hreq.getRequestURL());
         urlPagina = urlPagina.split(";")[0];
-        System.out.println("Pagina visitata: " +  urlPagina);
         if(urlPagina.endsWith("/") || urlPagina.endsWith("/home.jsp")) {
             pagina = "Homepage";
         }else if(urlPagina.endsWith("/attivita.jsp")){

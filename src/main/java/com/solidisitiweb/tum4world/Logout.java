@@ -11,7 +11,6 @@ import java.io.IOException;
 public class Logout extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // TODO: encodeURL()
         req.getSession().removeAttribute("username");
         req.getSession().removeAttribute("tipoUtente");
         resp.sendRedirect(resp.encodeURL("../home.jsp"));

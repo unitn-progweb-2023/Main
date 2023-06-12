@@ -3,7 +3,6 @@ package com.solidisitiweb.tum4world;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
-import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.annotation.WebServlet;
@@ -41,9 +40,6 @@ public class SendEmail extends HttpServlet {
             msg.setSubject(motivo);
             msg.setText("Ciao, sono " + nome + " " + cognome + ".\n" +
                     "Scrivo per: " + motivo + ". \n " + ulterioriInfo);
-            //Transport.send(msg);
-
-            System.out.println("Email inviata con successo");
             response.sendRedirect(response.encodeURL("invioconfermato.jsp"));
         } catch (MessagingException mex) {
             System.err.println("send failed, exception: " + mex);
