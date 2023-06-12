@@ -33,7 +33,7 @@ public class DeleteAccount extends HttpServlet {
             response.sendRedirect(response.encodeURL("../cancellazioneconfermata.jsp"));
         } catch (SQLException | NullPointerException e) {
             System.err.println(e);
-            response.sendRedirect(response.encodeURL("../error.jspjsp"));
+            response.sendRedirect(response.encodeURL("../error.jsp"));
         }
     }
 

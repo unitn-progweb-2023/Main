@@ -66,6 +66,8 @@ public class FilterLogged implements Filter {
                 pstmt.close();
             } catch (SQLException | NullPointerException e) {
                 System.err.println(e);
+                HttpServletResponse hres = (HttpServletResponse) servletResponse;
+                hres.sendRedirect(hres.encodeURL("../login.jsp"));
             }
         }
         else {

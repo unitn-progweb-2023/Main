@@ -79,7 +79,6 @@
                 <div id="donazioni" class="content-default grafico"></div>
             </div>
         </div>
-        <%@ include file="../cookie.jsp"%>
         <%@ include file="footer.html"%>
     </div>
     <script src="https://code.highcharts.com/highcharts.js"></script>

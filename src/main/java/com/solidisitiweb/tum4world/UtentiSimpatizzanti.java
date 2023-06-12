@@ -55,7 +55,6 @@ public class UtentiSimpatizzanti extends HttpServlet {
 
         } catch (SQLException | NullPointerException e) {
             System.err.println(e);
-            response.sendRedirect(response.encodeURL("/error.jsp"));
         }
 
         try (PrintWriter out = response.getWriter()) {
@@ -65,7 +64,6 @@ public class UtentiSimpatizzanti extends HttpServlet {
         }
         catch (IOException e) {
             System.err.println(e);
-            response.sendRedirect(response.encodeURL("/error.jsp"));
         }
     }
 

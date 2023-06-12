@@ -77,8 +77,6 @@ public class FilterVisited implements Filter{
                 String updateSQL = "UPDATE VISITE SET NumVisite = " + String.valueOf(numVisite)
                         + " WHERE Pagina = '" + pagina + "'";
                 stmt.executeUpdate(updateSQL);
-            } else {
-                System.out.println("Pagina non trovata");
             }
             stmt.close();
         } catch (SQLException | NullPointerException e) {
