@@ -76,12 +76,12 @@ public class RegistraUtente extends HttpServlet {
                 }
                 catch (SQLException | NullPointerException e) {
                     System.err.println(e);
-                    response.sendRedirect(response.encodeURL("error.html"));
+                    response.sendRedirect(response.encodeURL("error.jsp"));
                 }
             }
         } catch (SQLException | NullPointerException e) {
             System.err.println(e);
-            response.sendRedirect(response.encodeURL("error.html"));
+            response.sendRedirect(response.encodeURL("error.jsp"));
         }
     }
 

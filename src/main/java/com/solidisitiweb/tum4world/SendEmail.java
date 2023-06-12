@@ -29,10 +29,10 @@ public class SendEmail extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String nome = request.getParameter("nome");
-        String cognome = request.getParameter("cognome");;
-        String email = request.getParameter("email");;
-        String motivo = request.getParameter("motivazioni");;
-        String ulterioriInfo = request.getParameter("ulteriori");;
+        String cognome = request.getParameter("cognome");
+        String email = request.getParameter("email");
+        String motivo = request.getParameter("motivazioni");
+        String ulterioriInfo = request.getParameter("ulteriori");
 
         try {
             MimeMessage msg = new MimeMessage(sessioneSMTP);
@@ -47,7 +47,7 @@ public class SendEmail extends HttpServlet {
             response.sendRedirect(response.encodeURL("invioconfermato.jsp"));
         } catch (MessagingException mex) {
             System.err.println("send failed, exception: " + mex);
-            response.sendRedirect(response.encodeURL("error.html"));
+            response.sendRedirect(response.encodeURL("error.jsp"));
         }
 
     }

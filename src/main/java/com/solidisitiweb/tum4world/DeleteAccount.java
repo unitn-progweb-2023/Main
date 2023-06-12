@@ -5,7 +5,6 @@ import java.sql.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
-import javax.swing.text.html.parser.Parser;
 
 @WebServlet(name = "deleteAccount", value = "/dashboard/deleteAccount")
 public class DeleteAccount extends HttpServlet {
@@ -34,7 +33,7 @@ public class DeleteAccount extends HttpServlet {
             response.sendRedirect(response.encodeURL("../cancellazioneconfermata.jsp"));
         } catch (SQLException | NullPointerException e) {
             System.err.println(e);
-            response.sendRedirect(response.encodeURL("../error.html"));
+            response.sendRedirect(response.encodeURL("../error.jspjsp"));
         }
     }
 

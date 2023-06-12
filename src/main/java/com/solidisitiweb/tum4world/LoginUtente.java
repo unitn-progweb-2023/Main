@@ -1,6 +1,5 @@
 package com.solidisitiweb.tum4world;
 
-import com.google.gson.Gson;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -77,7 +76,7 @@ public class LoginUtente extends HttpServlet {
                 }
             } catch (SQLException | NullPointerException e) {
                 System.err.println(e);
-                response.sendRedirect(response.encodeURL("error.html"));
+                response.sendRedirect(response.encodeURL("error.jsp"));
             }
         }
         else {
