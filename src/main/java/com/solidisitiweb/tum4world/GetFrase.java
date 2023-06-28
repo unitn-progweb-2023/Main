@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Random;
 
 @WebServlet(name = "getFrase", value = "/frase")
 public class GetFrase extends HttpServlet {

@@ -40,6 +40,7 @@ public class SendEmail extends HttpServlet {
             msg.setSubject(motivo);
             msg.setText("Ciao, sono " + nome + " " + cognome + ".\n" +
                     "Scrivo per: " + motivo + ". \n " + ulterioriInfo);
+            //Transport.send(msg);
             response.sendRedirect(response.encodeURL("invioconfermato.jsp"));
         } catch (MessagingException mex) {
             System.err.println("send failed, exception: " + mex);
