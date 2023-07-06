@@ -543,6 +543,7 @@ select:-webkit-autofill:focus {
     border-radius: var(--p-xs);
     box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 29px 0px;
     font-weight: 500;
+    white-space: pre-wrap;
 }
 
 .cookie-container{
