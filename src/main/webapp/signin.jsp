@@ -102,14 +102,16 @@
             let diff = new Date(ora - data_nascita);
             let eta = Math.abs(diff.getUTCFullYear() - 1970);
             return eta >= 18 && eta < ora;
-            /*try {
-                return new Date(new Date() - new Date(document.getElementById("data_nascita").value)).getUTCFullYear()>1970;
-            } catch (e) {
-                return false;
-            }*/
         }
         function valida_mail(){
             let email = document.getElementById("email").value;
+            /**
+             * il seguente regex controlla che la mail inserita deve:
+             *  - avere almeno uno o più caratteri ripetuti compresi tra le prime parentesi quadre
+             *  - avere successivamente il carattere '@'
+             *  - avere una o più ripetizioni di caratteri presenti nelle seconde parentesi quadre sqguiti sempre da un .
+             *  - l'ultima sequenza di caratteri deve comprendere solo lettere e deve avere almeno due caratteri
+             */
             return email.length > 0 && /^[-a-zA-Z0-9_.%+]+@(?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,}$/.test(email);
         }
         function valida_telefono(){
@@ -126,36 +128,43 @@
             return psw === confermapsw && /(?=.*[0-9])(?=.*[dD])(?=.*[eE])(?=.*[gG])(?=.*[lL])(?=.*[$!?])(?=.*[A-Z]).{8,}/.test(psw);
         }
         function valida_form(){
+            let result = true;
             if(!valida_nome()) {
-                notify("Nome non valido: inserire solo spazi, lettere e '");
-                return false;
+                notify("Nome non valido: inserire solo spazi, lettere e apostrofi(')");
+                result = false;
             }
             if(!valida_cognome()) {
-                notify("Cognome non valido: inserire solo spazi, lettere e '");
-                return false;
+                notify("Cognome non valido: inserire solo spazi, lettere e apostrofi(')");
+                result = false;
             }
             if(!valida_eta()) {
                 notify("Devi avere più di 18 anni");
-                return false;
+                result = false;
             }
             if(!valida_telefono()) {
                 notify("Numero di telefono non valido: inserire 10 cifre consecutive");
-                return false;
+                result = false;
             }
             if(!valida_mail()) {
                 notify("Mail non valida");
-                return false;
+                result = false;
             }
             if(!valida_username()) {
                 notify("Username obbligatorio")
-                return false;
+                result = false;
             }
             if(!valida_password()) {
-                notify("Password non valida: le password inserite devono corrispondere, essere lunghe 8 caratteri, contenere i caratteri d, e, g, l, avere almeno un carattere numerico, un carattere maiuscolo e un carattere tra $, ! e ?");
-                return false;
+                notify("Password non valida, la password deve:\n" +
+                    " - corrispondere alla seconda password inserita\n" +
+                    " - essere lunga almeno 8 caratteri\n" +
+                    " - contenere i caratteri 'd' 'e' 'g' 'l'\n" +
+                    " - avere almeno un carattere numerico\n" +
+                    " - avere almeno un carattere maiuscolo\n" +
+                    " - contenere almeno un carattere tra '$' '!' '?'");
+                result = false;
             }
 
-            return true;
+            return result;
         }
         function mostra_password(id){
             let psw = document.getElementById(id);
