@@ -28,6 +28,7 @@
 
         <% if(request.getAttribute("error") != null){ %>
         <script>
+            // L' attributo 'error' viene settato nella servlet 'LoginUtente' in caso l'username e la password non coincidano
             notify("<%= (String) request.getAttribute("error") %>");
         </script>
         <% } %>
@@ -38,6 +39,10 @@
         function mostra_password(){
 
             let psw = document.getElementById("password");
+            /**
+             * rendendo il campo 'password' di tipo "text" si renderà visibile il testo inserito
+             * mettendolo di tipo "password" invece verrà nascosto
+             */
             if(psw.type === "password"){
                 psw.type = "text";
             }

@@ -63,10 +63,18 @@ public class GetDati extends HttpServlet {
                 a.setCognome(results.getString("Cognome"));
                 a.setEmail(results.getString("Email"));
                 a.setCellulare(results.getString("Cellulare"));
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                java.util.Date d = sdf.parse(results.getString("DataDiNascita"));
+                /**
+                 * la data di nascita viene salvata nel database nel formato yyyy-mm-dd
+                 * vogliamo che venga visualizzata nel formato dd-mm-yyyy
+                 */
+                // SimpleDateFormat permette di specificare il formato della data
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); // mm sono i minuti, MM i mesi
+                // salva in dataDiNascita la data salvata nel database(formato sbagliato)
+                java.util.Date dataDiNascita = sdf.parse(results.getString("DataDiNascita"));
+                // cambia il formato da utilizzare
                 sdf.applyPattern("dd-MM-yyyy");
-                a.setDataDiNascita(sdf.format(d));
+                // setta la data(col formato giusto) nell'oggetto da restituire
+                a.setDataDiNascita(sdf.format(dataDiNascita));
                 a.setUsername(results.getString("Username"));
             }
             results.close();

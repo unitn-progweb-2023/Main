@@ -81,7 +81,7 @@
 
         <% if(request.getAttribute("error") != null){ %>
             <script>
-                // L' attributo 'error' viene settato nella servlet in caso l'username inserito non sia disponibile
+                // L' attributo 'error' viene settato nella servlet 'RegistraUtenet' in caso l'username inserito non sia disponibile
                 notify(<%= (String) request.getAttribute("error") %>);
             </script>
         <% } %>
@@ -90,13 +90,26 @@
     <script>
         function valida_nome(){
             let nome = document.getElementById("nome").value;
+            /**
+             * il seguente regex controlla che il nome inserito deve:
+             *  - essere composta solo da spazi, apostrofi e lettere
+             *  - non contenere due apostrofi di fila
+             *  - non contenere spazi multipli
+             *  - non contenere una parola racchiuse tra 2 apostrofi
+             */
             return nome.length > 0 && /^(?!.*'')(?!.*\s\s)(?!.*'(\s*\w*)')[a-zA-Z]+([a-zA-Z'\s]*[a-zA-Z]+)*$/.test(nome);
         }
         function valida_cognome(){
             let cognome = document.getElementById("cognome").value;
+            /**
+             * il seguente regex controlla che il cognoome rispetti le stesse regole del nomeD
+             */
             return cognome.length > 0 && /^(?!.*'')(?!.*\s\s)(?!.*'(\s*\w*)')[a-zA-Z]+([a-zA-Z'\s]*[a-zA-Z]+)*$/.test(cognome);
         }
         function valida_eta(){
+            /**
+             * senza passare parametri il costruttore di Date restituisce la data attuale
+             */
             let data_attuale = new Date();
             let input = document.getElementById("dataNascita");
             let data_nascita = new Date(input.value);
@@ -105,7 +118,10 @@
              * new Date(value) -> crea una data aggiungendo value(in millisecondi) alla data di inizio del timestamp(1 Gennaio 1970)
              */
             let diff = new Date(data_attuale - data_nascita);
-
+            /**
+             * 1970 -> anno di inizio del timestamp
+             * diff.getUTCFullYear() - 1970 restituisce gli anni dell'utente a seconda della data di nascita inserita
+             */
             let eta = Math.abs(diff.getUTCFullYear() - 1970);
             return eta >= 18 && eta < data_attuale;
         }
@@ -122,6 +138,9 @@
         }
         function valida_telefono(){
             let telefono = document.getElementById("telefono").value;
+            /**
+             * il numero di telefono deve essere composto da 10 cifre numeriche
+             */
             return telefono.length > 0 && /^[0-9]{10}$/.test(telefono);
         }
         function valida_username(){
@@ -131,6 +150,15 @@
         function valida_password(){
             let psw = document.getElementById("password").value;
             let confermapsw = document.getElementById("confermapassword").value;
+            /**
+             * il seguente regex controlla che la password inserita deve:
+             *  - contenere almeno un numero
+             *  - avere almeno un'occorrenza(minuscola o maiuscola) dei caratteri 'd', 'e', 'g' ed 'l'
+             *  - contenere almeno un simbolo tra '$', '!' o '?'
+             *  - contenere almeno una lettera maiuscola
+             *  - essere lunga più di 8 caratteri
+             *  le password inserite nei campi 'password' e 'conferma password' dovranno poi coincidere
+             */
             return psw === confermapsw && /(?=.*[0-9])(?=.*[dD])(?=.*[eE])(?=.*[gG])(?=.*[lL])(?=.*[$!?])(?=.*[A-Z]).{8,}/.test(psw);
         }
         function valida_form(){
