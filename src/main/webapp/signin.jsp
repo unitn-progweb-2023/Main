@@ -81,6 +81,7 @@
 
         <% if(request.getAttribute("error") != null){ %>
             <script>
+                // L' attributo 'error' viene settato nella servlet in caso l'username inserito non sia disponibile
                 notify(<%= (String) request.getAttribute("error") %>);
             </script>
         <% } %>
@@ -96,12 +97,18 @@
             return cognome.length > 0 && /^(?!.*'')(?!.*\s\s)(?!.*'(\s*\w*)')[a-zA-Z]+([a-zA-Z'\s]*[a-zA-Z]+)*$/.test(cognome);
         }
         function valida_eta(){
-            let ora = new Date();
+            let data_attuale = new Date();
             let input = document.getElementById("dataNascita");
             let data_nascita = new Date(input.value);
-            let diff = new Date(ora - data_nascita);
+            let diff = new Date(data_attuale - data_nascita);
+
+            console.log(data_attuale);
+            console.log(data_nascita);
+            console.log(diff);
+            console.log(diff.getUTCFullYear());
+
             let eta = Math.abs(diff.getUTCFullYear() - 1970);
-            return eta >= 18 && eta < ora;
+            return eta >= 18 && eta < data_attuale;
             /*try {
                 return new Date(new Date() - new Date(document.getElementById("data_nascita").value)).getUTCFullYear()>1970;
             } catch (e) {
