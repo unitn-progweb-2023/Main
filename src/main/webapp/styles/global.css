@@ -497,7 +497,7 @@ select:-webkit-autofill:focus {
 }
 
 .mostra-password + label{
-    background:url('../img/hide.svg') no-repeat;
+    background:url('../webapp_resources/img/hide.svg') no-repeat;
     background-size: cover;
     height: 2rem;
     width: 2rem;
@@ -510,7 +510,7 @@ select:-webkit-autofill:focus {
 }
 
 .mostra-password:checked + label{
-    background:url('../img/show.svg') no-repeat;
+    background:url('../webapp_resources/img/show.svg') no-repeat;
     background-size: cover;
     height: 2rem;
     width: 2rem;

@@ -100,15 +100,14 @@
             let data_attuale = new Date();
             let input = document.getElementById("dataNascita");
             let data_nascita = new Date(input.value);
+            /**
+             * data_attuale - data_nascita = differenza in millisecondi tra le due date
+             * new Date(value) -> crea una data aggiungendo value(in millisecondi) alla data di inizio del timestamp(1 Gennaio 1970)
+             */
             let diff = new Date(data_attuale - data_nascita);
 
-            console.log(data_attuale);
-            console.log(data_nascita);
-            console.log(diff);
-            console.log(diff.getUTCFullYear());
-
             let eta = Math.abs(diff.getUTCFullYear() - 1970);
-            return eta >= 18 && eta < ora;
+            return eta >= 18 && eta < data_attuale;
         }
         function valida_mail(){
             let email = document.getElementById("email").value;
@@ -164,7 +163,7 @@
                 notify("Password non valida, la password deve:\n" +
                     " - corrispondere alla seconda password inserita\n" +
                     " - essere lunga almeno 8 caratteri\n" +
-                    " - contenere i caratteri 'd' 'e' 'g' 'l'\n" +
+                    " - contenere i caratteri 'd', 'e', 'g', 'l'\n" +
                     " - avere almeno un carattere numerico\n" +
                     " - avere almeno un carattere maiuscolo\n" +
                     " - contenere almeno un carattere tra '$' '!' '?'");
